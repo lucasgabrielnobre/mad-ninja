@@ -7,3 +7,4 @@ texture = ExtResource("1_x77fm")
 
 [node name="BulletLocation" type="Node2D" parent="."]
 position = Vector2(31, -7)
+metadata/_edit_group_ = true

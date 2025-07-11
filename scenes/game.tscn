@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://y1obx04d5t1v"]
+[gd_scene load_steps=9 format=4 uid="uid://y1obx04d5t1v"]
 
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="2_lnu2h"]
 [ext_resource type="Texture2D" uid="uid://bgw3ta52mbg0m" path="res://assets/wall-tiles.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemy_gun.tscn" id="4_lbhrr"]
+[ext_resource type="Script" uid="uid://c265pwqyieyeq" path="res://scripts/game_manager.gd" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -71,3 +73,6 @@ tile_set = SubResource("TileSet_uwrxv")
 position = Vector2(148, -164)
 
 [node name="GameManager" type="Node" parent="."]
+script = ExtResource("5_iywne")
+
+[node name="HUD" parent="." instance=ExtResource("6_p57ef")]

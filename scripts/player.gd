@@ -24,8 +24,6 @@ func _process(delta):
 	#tiro
 	if (Input.is_action_just_pressed("shoot")):
 		shoot_shuriken()
-	if (Input.is_action_just_pressed("reset")):
-		get_tree().reload_current_scene()	
 func shoot_shuriken():
 	var shuriken = shuriken_scene.instantiate() 
 	shuriken.direction = (get_global_mouse_position() - global_position).normalized()

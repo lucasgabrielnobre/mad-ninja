@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bn4p1xpsbmgwe"]
 
-[ext_resource type="Script" uid="uid://cii1jk2xeukyv" path="res://scenes/slash.gd" id="1_3c2nd"]
+[ext_resource type="Script" uid="uid://cii1jk2xeukyv" path="res://scripts/slash.gd" id="1_3c2nd"]
 [ext_resource type="Texture2D" uid="uid://4jipohrm6ddr" path="res://assets/slash-Sheet.png" id="1_rkylg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3c2nd"]

@@ -1,8 +1,9 @@
+res://scenes/slash.tscn
 res://scenes/game.tscn
-res://scripts/shuriken.gd
 res://scenes/enemy_gun.tscn
-res://scenes/bullet.tscn
-res://scenes/gun.tscn
 res://scenes/shuriken.tscn
+res://scenes/player.tscn
+res://scripts/player.gd
+res://scenes/slash.gd
+res://scripts/shuriken.gd
 res://scripts/bullet.gd
-res://scripts/enemy_gun.gd

@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bn4p1xpsbmgwe"]
+
+[ext_resource type="Script" uid="uid://cii1jk2xeukyv" path="res://scenes/slash.gd" id="1_3c2nd"]
+[ext_resource type="Texture2D" uid="uid://4jipohrm6ddr" path="res://assets/slash-Sheet.png" id="1_rkylg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3c2nd"]
+atlas = ExtResource("1_rkylg")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fg1j7"]
+atlas = ExtResource("1_rkylg")
+region = Rect2(40, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e2dr4"]
+atlas = ExtResource("1_rkylg")
+region = Rect2(80, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu08y"]
+atlas = ExtResource("1_rkylg")
+region = Rect2(120, 0, 40, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pim1l"]
+atlas = ExtResource("1_rkylg")
+region = Rect2(160, 0, 40, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xjeia"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3c2nd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fg1j7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e2dr4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu08y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pim1l")
+}],
+"loop": false,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0fel2"]
+size = Vector2(36.5, 55)
+
+[node name="Slash" type="Area2D"]
+script = ExtResource("1_3c2nd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xjeia")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.75, 0)
+shape = SubResource("RectangleShape2D_0fel2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

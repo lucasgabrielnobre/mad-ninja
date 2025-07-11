@@ -8,4 +8,6 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
+	if body.name == "Player":
+		pass
 	queue_free()

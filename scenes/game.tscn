@@ -69,3 +69,5 @@ tile_set = SubResource("TileSet_uwrxv")
 
 [node name="EnemyGun" parent="." instance=ExtResource("4_lbhrr")]
 position = Vector2(148, -164)
+
+[node name="GameManager" type="Node" parent="."]

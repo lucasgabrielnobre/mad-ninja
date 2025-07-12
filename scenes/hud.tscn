@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dtau1ouinhtnr"]
+[gd_scene load_steps=3 format=3 uid="uid://dtau1ouinhtnr"]
 
 [ext_resource type="FontFile" uid="uid://dmwnkxtfdm35q" path="res://assets/font/pixel.ttf" id="1_ahhtf"]
+[ext_resource type="Texture2D" uid="uid://voish5mg53pb" path="res://assets/shuriken_static.png" id="2_oo0fn"]
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -25,3 +26,16 @@ para recomecar.
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(32, 32)
+texture = ExtResource("2_oo0fn")
+
+[node name="ShurikensCounter" type="Label" parent="."]
+offset_left = 64.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 20
+text = "0"

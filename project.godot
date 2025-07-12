@@ -25,6 +25,7 @@ mouse_cursor/custom_image="uid://bmpf5c8b7un2v"
 [global_group]
 
 enemies="All enemies"
+Player=""
 
 [input]
 

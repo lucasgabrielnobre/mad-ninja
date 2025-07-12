@@ -1,6 +1,6 @@
 extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
-
+var shurikens = 0
 var max_speed = 1500
 const friction = 1000
 const dash = 10000
@@ -23,7 +23,9 @@ func _process(delta):
 	sprite.flip_h = get_global_mouse_position().x < position.x
 	#tiro
 	if (Input.is_action_just_pressed("shoot")):
-		shoot_shuriken()
+		if shurikens > 0:
+			shoot_shuriken()
+			shurikens -= 1
 func shoot_shuriken():
 	var shuriken = shuriken_scene.instantiate() 
 	shuriken.direction = (get_global_mouse_position() - global_position).normalized()
@@ -47,5 +49,8 @@ func slash_physics(delta):
 			slash()
 			$SlashTimer.start()
 			velocity += (get_global_mouse_position() - global_position).normalized() * dash * delta * 2
-func game_over():
-	print("Game Over")
+
+func plus_shuriken():
+	shurikens += 1
+func shurikens_count():
+	return str(shurikens)

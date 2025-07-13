@@ -6,6 +6,7 @@
 [node name="HUD" type="CanvasLayer"]
 
 [node name="GameOver" type="Label" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -39,3 +40,24 @@ offset_bottom = 80.0
 theme_override_fonts/font = ExtResource("1_ahhtf")
 theme_override_font_sizes/font_size = 20
 text = "0"
+
+[node name="NextLevel" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -253.0
+offset_top = -148.5
+offset_right = 253.0
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 40
+text = "Pressione espaco para continuar"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1

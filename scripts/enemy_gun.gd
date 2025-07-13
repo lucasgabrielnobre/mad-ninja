@@ -4,10 +4,12 @@ var speed = 20.0
 var bullet_scene = preload("res://scenes/bullet.tscn")
 @onready var gun: Sprite2D = $Gun
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var game_manager: Node = get_node("/root/Level" + str(LevelManager.current_level) + "/GameManager")
 var player : Node2D
-func _ready():
-	if has_node("/root/Game/Player"):
-		player = get_node("/root/Game/Player")
+func _ready(): 
+	var player_path = "/root/Level" + str(LevelManager.current_level) +"/Player"
+	if has_node(player_path):
+		player = get_node(player_path)
 
 
 func _process(delta: float) -> void:

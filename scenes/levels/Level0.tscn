@@ -1,15 +1,15 @@
 [gd_scene load_steps=10 format=4 uid="uid://y1obx04d5t1v"]
 
-[ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player.tscn" id="1_uwrxv"]
-[ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="2_lnu2h"]
-[ext_resource type="Texture2D" uid="uid://bgw3ta52mbg0m" path="res://assets/wall-tiles.png" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemy_gun.tscn" id="4_lbhrr"]
-[ext_resource type="Script" uid="uid://c265pwqyieyeq" path="res://scripts/game_manager.gd" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="6_p57ef"]
-[ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemy_chasing.tscn" id="7_u5sy4"]
+[ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="1_ax2ff"]
+[ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player.tscn" id="2_bbvxl"]
+[ext_resource type="Texture2D" uid="uid://bgw3ta52mbg0m" path="res://assets/wall-tiles.png" id="3_e2o36"]
+[ext_resource type="Script" uid="uid://c265pwqyieyeq" path="res://scripts/game_manager.gd" id="4_ue060"]
+[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_oswwn"]
+[ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemy_gun.tscn" id="6_c2uwi"]
+[ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemy_chasing.tscn" id="7_n5l3n"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
-texture = ExtResource("2_yqjtg")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
+texture = ExtResource("3_e2o36")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -50,17 +50,20 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_uwrxv"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+sources/0 = SubResource("TileSetAtlasSource_u5sy4")
 
-[node name="Game" type="Node2D"]
+[node name="Level0" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+script = ExtResource("4_ue060")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-158, 134)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
-script = ExtResource("2_lnu2h")
+script = ExtResource("1_ax2ff")
 
-[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+[node name="Player" parent="." instance=ExtResource("2_bbvxl")]
 unique_name_in_owner = true
 z_index = 100
 position = Vector2(-158, 134)
@@ -70,15 +73,14 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD7/wQAAAAAAAIAAAD8/wQAAAABAAIAAAD9/wQAAAABAAIAAAD+/wQAAAABAAIAAAD//wQAAAABAAIAAAAEAAAAAAACAAIAAAAEAP7/AAACAAEAAAAEAP3/AAACAAEAAAAEAPz/AAACAAEAAAAEAPv/AAACAAAAAAADAPv/AAABAAAAAAACAPv/AAABAAAAAAABAPv/AAABAAAAAAAAAPv/AAABAAAAAAD///v/AAAAAAAAAAD7/wEAAAAAAAEAAAD7/wIAAAAAAAEAAAD7/wMAAAAAAAEAAAD8/wMAAAABAAEAAAD9/wIAAAABAAEAAAD9/wEAAAABAAEAAAD+/wAAAAABAAEAAAD+////AAABAAEAAAD///7/AAABAAEAAAD8//7/AAAAAAAAAAD8/wAAAAABAAEAAAD8/wEAAAABAAEAAAD8/wIAAAABAAEAAAD9//3/AAAAAAAAAAD9//7/AAAFAAIAAAD9////AAABAAEAAAD9/wAAAAABAAEAAAD9/wMAAAABAAEAAAD+//z/AAAAAAAAAAD+//3/AAAFAAIAAAD+//7/AAABAAEAAAD+/wEAAAABAAEAAAD+/wIAAAABAAEAAAD+/wMAAAABAAEAAAD///z/AAAFAAIAAAD///3/AAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAAAAPz/AAABAAEAAAAAAP3/AAABAAEAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAEAAAAAAAMAAAADAAAAAAABAPz/AAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAABAAIAAAADAAAAAAACAPz/AAABAAEAAAACAP3/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAADAAAAAAADAPz/AAABAAEAAAADAP3/AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAADAAAAAAADAAAAAAAEAP//AAACAAEAAAD7/wAAAAAAAAEAAAD7////AAAAAAAAAAD8////AAAFAAIAAAAAAAQAAAACAAIAAAABAAMAAAACAAIAAAACAAIAAAACAAIAAAADAAEAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_uwrxv")
 
-[node name="GameManager" type="Node" parent="."]
-script = ExtResource("5_iywne")
-
-[node name="HUD" parent="." instance=ExtResource("6_p57ef")]
+[node name="HUD" parent="." instance=ExtResource("5_oswwn")]
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="EnemyGun" parent="Enemies" instance=ExtResource("4_lbhrr")]
+[node name="EnemyGun" parent="Enemies" instance=ExtResource("6_c2uwi")]
 position = Vector2(148, -164)
 
-[node name="EnemyChasing" parent="Enemies" instance=ExtResource("7_u5sy4")]
+[node name="EnemyChasing" parent="Enemies" instance=ExtResource("7_n5l3n")]
 position = Vector2(32, -48)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

@@ -1,9 +1,12 @@
 extends Camera2D
 # evitar erros de player não encontratado
 var player : Node2D
+@onready var game_manager: Node = get_node("/root/Level" + str(LevelManager.current_level) + "/GameManager")
 func _ready():
-	if has_node("/root/Game/Player"):
-		player = get_node("/root/Game/Player")
+	var player_path = "/root/Level" + str(LevelManager.current_level) +"/Player"
+	if has_node(player_path):
+		player = get_node(player_path)
+
 #codigo para o camera offset (tipo enter the gungeon)
 var desired_offset: Vector2
 @export var min_offset = -100

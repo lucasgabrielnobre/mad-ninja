@@ -1,3 +1,5 @@
+CanvasModulate
+Polygon2D
 Label
 Sprite2D
 CollisionShape2D
@@ -11,4 +13,3 @@ Node2D
 StaticBody2D
 RigidBody2D
 Camera2D
-TileMap

@@ -36,5 +36,6 @@ func _process(delta):
 		canvas_modulate.color = "#a6a6a6"
 func enemy_died():
 	enemies_count -= 1
-	player.shurikens += 1
+	if is_instance_valid(player):
+		player.shurikens += 1
 	

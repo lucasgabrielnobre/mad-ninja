@@ -1,3 +1,4 @@
+AnimatedSprite2D
 CanvasModulate
 Polygon2D
 Label
@@ -8,8 +9,6 @@ Node
 CharacterBody2D
 CanvasLayer
 Timer
-AnimatedSprite2D
 Node2D
 StaticBody2D
 RigidBody2D
-Camera2D

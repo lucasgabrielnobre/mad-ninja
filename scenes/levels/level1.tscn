@@ -84,4 +84,10 @@ position = Vector2(248, -128)
 [node name="EnemyChasing" parent="Enemies" instance=ExtResource("7_lgguw")]
 position = Vector2(120, -32)
 
+[node name="EnemyGun2" parent="Enemies" instance=ExtResource("6_nfihu")]
+position = Vector2(-112, -128)
+
+[node name="EnemyGun3" parent="Enemies" instance=ExtResource("6_nfihu")]
+position = Vector2(256, 112)
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

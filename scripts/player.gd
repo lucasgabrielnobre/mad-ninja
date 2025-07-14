@@ -1,5 +1,5 @@
 extends CharacterBody2D
-@onready var sprite: Sprite2D = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var game_manager: Node = $"../GameManager"
 var shurikens = 0
 var max_speed = 1500
@@ -16,6 +16,10 @@ func ready():
 	print(current_scene_file)
 func player_movement(delta):
 	direction = Input.get_vector("left", "right", "up", "down")
+	if direction == Vector2.ZERO:
+		sprite.play("idle")
+	else:
+		sprite.play("walk")
 	slash_physics(delta)
 	position += direction * speed * delta
 	move_and_slide()

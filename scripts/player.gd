@@ -9,18 +9,19 @@ const dash = 10000
 
 var speed = 400
 
-var shuriken_scene = preload("res://scenes/shuriken.tscn")
-var slash_scene = preload("res://scenes/slash.tscn")
+var shuriken_scene = preload("res://scenes/player/shuriken.tscn")
+var slash_scene = preload("res://scenes/player/slash.tscn")
 var direction = Vector2.ZERO
 func ready():
 	var current_scene_file = get_tree().current_scene.scene_file_path
 	print(current_scene_file)
 func player_movement(delta):
 	direction = Input.get_vector("left", "right", "up", "down")
-	if direction != Vector2.ZERO and !animation_player.is_playing():
-		update_animation("walk")
-	elif !animation_player.is_playing():
-		update_animation("idle")
+	if animation_player.current_animation != "appear":
+		if direction != Vector2.ZERO:
+			update_animation("walk")
+		else:
+			update_animation("idle")
 	slash_physics(delta)
 	position += direction * speed * delta
 	move_and_slide()
@@ -58,7 +59,7 @@ func slash_physics(delta):
 		if Input.is_action_just_pressed("slash"):
 			slash()
 			$SlashTimer.start()
-			velocity += (get_global_mouse_position() - global_position).normalized() * dash * delta * 2
+			#velocity += (get_global_mouse_position() - global_position).normalized() * dash * delta * 2
 func shurikens_count():
 	return str(shurikens)
 func update_animation(animation):

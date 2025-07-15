@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://diwggmj546y1g"]
+
+[ext_resource type="PackedScene" uid="uid://d4lrujwynh212" path="res://scenes/enemies/enemy_simple.tscn" id="1_ri1c0"]
+[ext_resource type="Script" uid="uid://diljg7k2x72b6" path="res://scripts/enemy_static.gd" id="2_lg8gs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg8gs"]
+size = Vector2(56, 53)
+
+[node name="EnemyStatic" instance=ExtResource("1_ri1c0")]
+script = ExtResource("2_lg8gs")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_lg8gs")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

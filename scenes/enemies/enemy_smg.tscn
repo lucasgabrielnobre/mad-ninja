@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://klr3gel5g1xy"]
+
+[ext_resource type="PackedScene" uid="uid://d4lrujwynh212" path="res://scenes/enemies/enemy_simple.tscn" id="1_erets"]
+[ext_resource type="Script" uid="uid://5o20b3a0mvmt" path="res://scripts/enemy_smg.gd" id="2_qd1b3"]
+[ext_resource type="PackedScene" uid="uid://4vo5xfqv5364" path="res://scenes/enemies/guns/smg.tscn" id="3_gnqaf"]
+
+[node name="EnemySMG" instance=ExtResource("1_erets")]
+script = ExtResource("2_qd1b3")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+
+[node name="Timer" type="Timer" parent="." index="2"]
+wait_time = 0.2
+autostart = true
+
+[node name="SMG" parent="." index="3" instance=ExtResource("3_gnqaf")]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

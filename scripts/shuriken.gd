@@ -14,9 +14,9 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if is_instance_valid(player):
-		player.get_node("AnimationPlayer").play("appear")
 		if body.is_in_group("enemies"):
 			player.position = global_position
+			player.get_node("AnimationPlayer").play("appear")
 			game_manager.enemy_died()
 			body.queue_free()
 		queue_free()

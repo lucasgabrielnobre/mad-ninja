@@ -1,6 +1,7 @@
 extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var game_manager: Node = $"../GameManager"
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 var shurikens = 0
 var max_speed = 1500
 const friction = 1000
@@ -16,10 +17,10 @@ func ready():
 	print(current_scene_file)
 func player_movement(delta):
 	direction = Input.get_vector("left", "right", "up", "down")
-	if direction == Vector2.ZERO:
-		sprite.play("idle")
-	else:
-		sprite.play("walk")
+	if direction != Vector2.ZERO and !animation_player.is_playing():
+		update_animation("walk")
+	elif !animation_player.is_playing():
+		update_animation("idle")
 	slash_physics(delta)
 	position += direction * speed * delta
 	move_and_slide()
@@ -60,3 +61,6 @@ func slash_physics(delta):
 			velocity += (get_global_mouse_position() - global_position).normalized() * dash * delta * 2
 func shurikens_count():
 	return str(shurikens)
+func update_animation(animation):
+	animation_player.play(animation)
+	

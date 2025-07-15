@@ -3,3 +3,5 @@ res://scripts/player.gd
 res://scenes/levels/Level0.tscn
 res://scenes/levels/level1.tscn
 res://scripts/game_manager.gd
+res://scripts/shuriken.gd
+res://scripts/enemy_chasing.gd

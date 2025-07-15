@@ -13,8 +13,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("enemies"):
-		player.position = global_position
-		game_manager.enemy_died()
-		body.queue_free()
-	queue_free()
+	if is_instance_valid(player):
+		player.get_node("AnimationPlayer").play("appear")
+		if body.is_in_group("enemies"):
+			player.position = global_position
+			game_manager.enemy_died()
+			body.queue_free()
+		queue_free()

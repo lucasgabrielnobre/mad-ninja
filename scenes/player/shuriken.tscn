@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://uas7xfb6f71r"]
 
-[ext_resource type="Texture2D" uid="uid://dnurm6d0x8gua" path="res://assets/shuriken_throw-Sheet.png" id="1_7ccba"]
+[ext_resource type="Texture2D" uid="uid://bw0w25m7gjyv0" path="res://assets/shuriken_throw-Sheet.png" id="1_7ccba"]
 [ext_resource type="Script" uid="uid://dnme5v2txgbc6" path="res://scripts/shuriken.gd" id="1_k18gy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k18gy"]

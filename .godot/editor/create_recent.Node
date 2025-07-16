@@ -1,3 +1,4 @@
+AnimatedSprite2D
 RichTextLabel
 CollisionShape2D
 Area2D
@@ -5,7 +6,6 @@ AnimationPlayer
 Sprite2D
 Node2D
 Timer
-AnimatedSprite2D
 CanvasModulate
 Polygon2D
 Label

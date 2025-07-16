@@ -28,6 +28,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("next_level") and next_level:
 		LevelManager.current_level += 1
 		get_tree().change_scene_to_file(next_level_path)
+	if Input.is_action_just_pressed("3"):
+		change_levels(3)
 	if is_instance_valid(player):
 		hud.get_node("ShurikensCounter").set_text(player.shurikens_count())
 	if enemies_count < 1:
@@ -38,4 +40,6 @@ func enemy_died():
 	enemies_count -= 1
 	if is_instance_valid(player):
 		player.shurikens += 1
-	
+func change_levels(number):
+	LevelManager.current_level = number
+	get_tree().change_scene_to_file(FILE_LEVEL + str(number) + ".tscn")

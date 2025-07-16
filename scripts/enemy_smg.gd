@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var speed = 20.0
-var bullet_scene = preload("res://scenes/bullet_smg.tscn")
+var bullet_scene = preload("res://scenes/enemies/guns/bullet_smg.tscn")
 @onready var gun: Sprite2D = $SMG
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 

@@ -11,7 +11,7 @@ script = ExtResource("2_qd1b3")
 visible = true
 
 [node name="Timer" type="Timer" parent="." index="2"]
-wait_time = 0.2
+wait_time = 0.3
 autostart = true
 
 [node name="SMG" parent="." index="3" instance=ExtResource("3_gnqaf")]

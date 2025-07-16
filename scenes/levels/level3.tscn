@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=4 uid="uid://bsy5ynwal5l3b"]
+
+[ext_resource type="Script" uid="uid://c265pwqyieyeq" path="res://scripts/game_manager.gd" id="1_f7rt6"]
+[ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="2_8w0pe"]
+[ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="3_7eb4w"]
+[ext_resource type="Texture2D" uid="uid://bqvb2i66olrdc" path="res://assets/wall-tiles.png" id="4_hadiw"]
+[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_72x3h"]
+[ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemies/enemy_gun.tscn" id="6_wb0vq"]
+[ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="7_ah4rv"]
+[ext_resource type="PackedScene" uid="uid://klr3gel5g1xy" path="res://scenes/enemies/enemy_smg.tscn" id="7_f7rt6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cr2eh"]
+texture = ExtResource("4_hadiw")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:1/0 = 0
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_cy6r3"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_cr2eh")
+
+[node name="Level3" type="Node2D"]
+
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_f7rt6")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-158, 134)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+script = ExtResource("2_8w0pe")
+
+[node name="TileSet" type="TileMapLayer" parent="."]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD9/wEAAAABAAEAAAD+////AAABAAEAAAD8/wAAAAABAAEAAAD8/wEAAAABAAEAAAD9////AAABAAEAAAD9/wAAAAABAAEAAAD+/wIAAAABAAEAAAD+/wMAAAABAAIAAAD/////AAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAIAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAAAAAIAAAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAD7/wEAAAAAAAEAAAD7/wAAAAAAAAEAAAD7////AAAAAAEAAAD7//7/AAAAAAEAAAD8////AAABAAEAAAAAAAMAAAABAAIAAAABAAMAAAABAAIAAAACAAMAAAABAAIAAAACAAIAAAABAAEAAAABAAIAAAABAAEAAAADAAMAAAABAAIAAAAEAAIAAAABAAEAAAADAAIAAAABAAEAAAACAAEAAAABAAEAAAADAAEAAAABAAEAAAAEAP7/AAABAAEAAAAEAP//AAABAAEAAAAEAAAAAAABAAEAAAAEAAEAAAABAAEAAAAFAP7/AAABAAEAAAAFAP//AAABAAEAAAAFAAAAAAABAAEAAAAFAAEAAAABAAEAAAABAAEAAAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAD//wAAAAABAAEAAAAAAAAAAAABAAEAAAD+/wAAAAABAAEAAAD+/wEAAAABAAEAAAAAAAEAAAABAAEAAAD//wEAAAABAAEAAAD9/wIAAAABAAEAAAD8/wIAAAABAAEAAAD9/wMAAAABAAIAAAD8/wMAAAABAAIAAAD7/wIAAAAAAAEAAAD7/wMAAAAAAAIAAAAEAAMAAAABAAIAAAAFAAMAAAABAAIAAAAGAAMAAAABAAIAAAAHAAMAAAABAAIAAAAIAAMAAAACAAIAAAAIAAIAAAACAAEAAAAIAAEAAAACAAEAAAAIAAAAAAACAAEAAAAIAP//AAACAAEAAAAIAP7/AAACAAEAAAAIAP3/AAACAAEAAAAIAPz/AAACAAAAAAAHAPz/AAABAAAAAAAGAPz/AAABAAAAAAAFAPz/AAABAAAAAAAEAPz/AAABAAAAAAADAPz/AAABAAAAAAACAPz/AAABAAAAAAABAPz/AAABAAAAAAAAAPz/AAABAAAAAAD///z/AAABAAAAAAD+//z/AAABAAAAAAD9//z/AAABAAAAAAD8//z/AAABAAAAAAD7//z/AAAAAAAAAAD7//3/AAAAAAEAAAD8//3/AAABAAEAAAD9//3/AAABAAEAAAD8//7/AAABAAEAAAD9//7/AAABAAEAAAD+//3/AAABAAEAAAD+//7/AAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAEAAAAAAP3/AAABAAEAAAABAP3/AAABAAEAAAACAP3/AAABAAEAAAADAP3/AAABAAEAAAAEAP3/AAABAAEAAAAFAP3/AAABAAEAAAAFAAIAAAABAAEAAAAGAP3/AAABAAEAAAAGAP7/AAABAAEAAAAGAP//AAABAAEAAAAGAAAAAAABAAEAAAAGAAEAAAABAAEAAAAGAAIAAAABAAEAAAAHAP3/AAABAAEAAAAHAP7/AAABAAEAAAAHAP//AAABAAEAAAAHAAAAAAABAAEAAAAHAAEAAAABAAEAAAAHAAIAAAABAAEAAAA=")
+tile_set = SubResource("TileSet_cy6r3")
+
+[node name="Player" parent="." instance=ExtResource("3_7eb4w")]
+unique_name_in_owner = true
+z_index = 100
+position = Vector2(-119, 5)
+
+[node name="HUD" parent="." instance=ExtResource("5_72x3h")]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="EnemyGun3" parent="Enemies" instance=ExtResource("6_wb0vq")]
+position = Vector2(424, 1)
+
+[node name="EnemySMG" parent="Enemies" instance=ExtResource("7_f7rt6")]
+position = Vector2(338, -128)
+
+[node name="EnemySMG2" parent="Enemies" instance=ExtResource("7_f7rt6")]
+position = Vector2(336, 112)
+
+[node name="EnemyChasing" parent="Enemies" instance=ExtResource("7_ah4rv")]
+position = Vector2(168, 144)
+
+[node name="EnemyChasing2" parent="Enemies" instance=ExtResource("7_ah4rv")]
+position = Vector2(168, -154)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

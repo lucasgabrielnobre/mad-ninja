@@ -4,6 +4,8 @@ var speed = 20.0
 var bullet_scene = preload("res://scenes/enemies/guns/bullet_smg.tscn")
 @onready var gun: Sprite2D = $SMG
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var timer_bullet: Timer = $TimerBullet
+
 
 @onready var game_manager: Node = get_node("/root/Level" + str(LevelManager.current_level) + "/GameManager")
 var player : Node2D
@@ -11,6 +13,7 @@ func _ready():
 	var player_path = "/root/Level" + str(LevelManager.current_level) +"/Player"
 	if has_node(player_path):
 		player = get_node(player_path)
+	#sprite.play("idle")
 func _process(delta: float) -> void:
 	if (is_instance_valid(player)):
 		gun.look_at(player.position) # arma mira no player
@@ -27,7 +30,7 @@ func _process(delta: float) -> void:
 			sprite.flip_h = true
 		else:
 			sprite.flip_h = false
-func _on_timer_timeout() -> void:
+func _on_timer_bullet_timeout() -> void:
 	if is_instance_valid(player):
 		gun.get_node("AnimationPlayer").play("shoot")
 		var bullet = bullet_scene.instantiate() 
@@ -36,3 +39,8 @@ func _on_timer_timeout() -> void:
 		bullet.rotation = gun.rotation
 		# subtrair posicao player e inimigo para pegar direcao
 		get_tree().get_root().call_deferred("add_child", bullet)
+func _on_timer_reload_timeout() -> void:
+	if timer_bullet.time_left > 0:
+		timer_bullet.stop()
+	else:
+		timer_bullet.start()

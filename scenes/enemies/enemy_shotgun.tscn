@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxqoiarbciili"]
+
+[ext_resource type="PackedScene" uid="uid://d4lrujwynh212" path="res://scenes/enemies/enemy_simple.tscn" id="1_ohsvx"]
+[ext_resource type="Texture2D" uid="uid://dcl6baquc560v" path="res://assets/enemy-Sheet.png" id="2_4l5gq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c04le"]
+atlas = ExtResource("2_4l5gq")
+region = Rect2(0, 0, 56, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1c2gk"]
+atlas = ExtResource("2_4l5gq")
+region = Rect2(56, 0, 56, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qndm6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c04le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1c2gk")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="EnemyShotgun" instance=ExtResource("1_ohsvx")]
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_qndm6")
+
+[node name="CollisionShape2D" parent="." index="1"]
+visible = true
+position = Vector2(0, 0)

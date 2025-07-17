@@ -19,17 +19,12 @@ func _ready():
 	var next_level_number = current_level + 1
 	next_level_path  = FILE_LEVEL + str(next_level_number) + ".tscn"
 func game_over():
-	hud.get_node("GameOver").visible = true
-	player.queue_free()
-	canvas_modulate.color = "#a6a6a6"
-func _process(delta):
-	if Input.is_action_just_pressed("reset"):
-		get_tree().reload_current_scene()	
-	if Input.is_action_just_pressed("next_level") and next_level:
-		LevelManager.current_level += 1
-		get_tree().change_scene_to_file(next_level_path)
-	if Input.is_action_just_pressed("3"):
-		change_levels(3)
+	if next_level != true:
+		hud.get_node("GameOver").visible = true
+		player.queue_free()
+		canvas_modulate.color = "#a6a6a6"
+func _process(_delta):
+	input_Manager()
 	if is_instance_valid(player):
 		hud.get_node("ShurikensCounter").set_text(player.shurikens_count())
 	if enemies_count < 1:
@@ -43,3 +38,15 @@ func enemy_died():
 func change_levels(number):
 	LevelManager.current_level = number
 	get_tree().change_scene_to_file(FILE_LEVEL + str(number) + ".tscn")
+func input_Manager():
+	if Input.is_action_just_pressed("reset"):
+		get_tree().reload_current_scene()	
+	if Input.is_action_just_pressed("next_level") and next_level:
+		LevelManager.current_level += 1
+		get_tree().change_scene_to_file(next_level_path)
+	if Input.is_key_pressed(KEY_2):
+		change_levels(2)
+	if Input.is_key_pressed(KEY_3):
+		change_levels(3)
+	if Input.is_key_pressed(KEY_4):
+		change_levels(4)

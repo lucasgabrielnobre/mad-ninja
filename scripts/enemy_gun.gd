@@ -8,7 +8,7 @@ var bullet_scene = preload("res://scenes/enemies/guns/bullet.tscn")
 @onready var game_manager: Node = get_node("/root/Level" + str(LevelManager.current_level) + "/GameManager")
 var player : Node2D
 func _ready(): 
-	sprite.play("idle")
+	#sprite.play("idle")
 	var player_path = "/root/Level" + str(LevelManager.current_level) +"/Player"
 	if has_node(player_path):
 		player = get_node(player_path)
@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 			sprite.flip_h = true
 		else:
 			sprite.flip_h = false
+			
 func _on_timer_timeout() -> void:
 	if is_instance_valid(player):
 		gun.get_node("AnimationPlayer").play("shoot")

@@ -1,6 +1,23 @@
 extends CharacterBody2D
+class_name enemy_chasing
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+
+func _physics_process(_delta: float) -> void:
+	move_and_slide()
+	if velocity.length() > 0:
+		sprite.play("walk")
+		animation_player.play("walk")
+		if  velocity.x > 0:
+			sprite.flip_h = false
+		else:
+			sprite.flip_h = true
+	else:
+		animation_player.play("RESET")
+		sprite.play("idle")
+	
+"""
+
 @onready var area_2d: Area2D = $Area2D
 @onready var game_manager: Node = get_node("/root/Level" + str(LevelManager.current_level) + "/GameManager")
 var speed = 80
@@ -20,6 +37,8 @@ func _physics_process(delta: float) -> void:
 	if is_instance_valid(player):
 		var player_direction = (player.global_position - global_position).normalized()
 		position += player_direction * delta * speed
+		move_and_slide()
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		game_manager.game_over()
+"""

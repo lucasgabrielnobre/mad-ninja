@@ -28,7 +28,7 @@ func player_movement(delta):
 func _physics_process(delta: float) -> void:
 	# movimentação
 	player_movement(delta)
-func _process(delta):
+func _process(_delta):
 	#flip do sprite
 	sprite.flip_h = get_global_mouse_position().x < position.x
 	#tiro

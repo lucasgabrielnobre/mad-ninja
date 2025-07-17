@@ -7,8 +7,8 @@ func _ready():
 	var player_path = "/root/Level" + str(LevelManager.current_level) +"/Player"
 	if has_node(player_path):
 		player = get_node(player_path)
-	sprite.play("idle")
-func _process(delta):
+	#sprite.play("idle")
+func _process(_delta):
 	if is_instance_valid(player):
 		if player.global_position.x < global_position.x:
 			sprite.flip_h = true

@@ -9,7 +9,7 @@ func _ready():
 	var player_path = "/root/Level" + str(LevelManager.current_level) + "/Player"
 	if has_node(player_path):
 		player = get_node(player_path)
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	global_position += direction * SPEED 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

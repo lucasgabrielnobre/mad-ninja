@@ -11,4 +11,6 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		if is_instance_valid(game_manager):
 			game_manager.game_over()
-	queue_free()
+			queue_free()
+	elif body is TileMapLayer:
+		queue_free()

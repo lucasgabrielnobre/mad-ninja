@@ -1,9 +1,9 @@
 [gd_scene load_steps=10 format=4 uid="uid://c2p7qr2rcyj2u"]
 
 [ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="1_2r1tl"]
+[ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_k0mew"]
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="2_8a7m2"]
 [ext_resource type="Texture2D" uid="uid://bqvb2i66olrdc" path="res://assets/wall-tiles.png" id="3_plydf"]
-[ext_resource type="Script" uid="uid://c265pwqyieyeq" path="res://scripts/game_manager.gd" id="4_5ntmo"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_nkeig"]
 [ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemies/enemy_gun.tscn" id="6_nfihu"]
 [ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="7_lgguw"]
@@ -54,9 +54,7 @@ sources/0 = SubResource("TileSetAtlasSource_cr2eh")
 
 [node name="Level2" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
-unique_name_in_owner = true
-script = ExtResource("4_5ntmo")
+[node name="GameManager" parent="." instance=ExtResource("1_k0mew")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-158, 134)

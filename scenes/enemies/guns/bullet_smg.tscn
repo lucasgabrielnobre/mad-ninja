@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://u02cpci1ki8t"]
 
-[ext_resource type="Script" uid="uid://c7ls27wsp5fmj" path="res://scripts/bullet_smg.gd" id="1_gl34x"]
+[ext_resource type="Script" uid="uid://c7ls27wsp5fmj" path="res://scripts/Enemy/bullet_smg.gd" id="1_gl34x"]
 [ext_resource type="Texture2D" uid="uid://tbcvf5ic0e8o" path="res://assets/bullet-smg.png" id="1_kmqy6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gl34x"]

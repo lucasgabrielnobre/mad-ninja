@@ -1,13 +1,11 @@
 extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var game_manager: Node = get_node("/root/Level" + str(LevelManager.current_level) + "/GameManager")
+var game_manager: Node
 var speed = 80
 var player : Node2D
 func _ready():
-	var player_path = "/root/Level" + str(LevelManager.current_level) +"/Player"
-	if has_node(player_path):
-		player = get_node(player_path)
-	#sprite.play("idle")
+	game_manager = get_tree().get_first_node_in_group("GameManager")
+	player = get_tree().get_first_node_in_group("Player")
 func _process(_delta):
 	if is_instance_valid(player):
 		if player.global_position.x < global_position.x:

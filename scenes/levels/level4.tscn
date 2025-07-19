@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=4 uid="uid://b01562m1tx8xi"]
 
-[ext_resource type="Script" uid="uid://c265pwqyieyeq" path="res://scripts/game_manager.gd" id="1_rdsj4"]
+[ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_e127x"]
 [ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="2_e127x"]
 [ext_resource type="Texture2D" uid="uid://bqvb2i66olrdc" path="res://assets/wall-tiles.png" id="3_heu5o"]
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="4_s45gt"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_4vryo"]
-[ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="6_e127x"]
+[ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemies/enemy_gun.tscn" id="6_e127x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cr2eh"]
 texture = ExtResource("3_heu5o")
@@ -53,9 +53,8 @@ sources/0 = SubResource("TileSetAtlasSource_cr2eh")
 
 [node name="Level4" type="Node2D"]
 
-[node name="GameManager" type="Node" parent="."]
+[node name="GameManager" parent="." instance=ExtResource("1_e127x")]
 unique_name_in_owner = true
-script = ExtResource("1_rdsj4")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-158, 134)
@@ -77,7 +76,7 @@ position = Vector2(-40, -416)
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="EnemyChasing" parent="Enemies" instance=ExtResource("6_e127x")]
-position = Vector2(184, -424)
+[node name="EnemyGun" parent="Enemies" instance=ExtResource("6_e127x")]
+position = Vector2(132.355, -418.147)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

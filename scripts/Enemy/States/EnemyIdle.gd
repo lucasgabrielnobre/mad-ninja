@@ -1,26 +1,21 @@
-extends State
+extends Enemy
 class_name EnemyIdle
 
-@export var enemy : CharacterBody2D
-@export var move_speed := 10.0
-
-var stop_time := 1.0
+var stop_time : float
 var speed : float
 var move_direction : Vector2
 var wander_time : float
 
-
-
-# funcao para criar os valores aleatorios
 func randomize_wander():
-	speed = move_speed
+	speed = move_speed # reset speed
 	move_direction = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
 	wander_time = randf_range(1,3)
 	stop_time = randf_range(1,2)
 func Enter():
+	player = get_tree().get_first_node_in_group("Player")
 	randomize_wander()
+	wander_time = 0
 func Update(delta): 
-	# functiona como um timer
 	if wander_time > 0:
 		wander_time -= delta
 	else:
@@ -29,6 +24,16 @@ func Update(delta):
 		if stop_time <= 0:
 			randomize_wander()
 		
-func Physics_Update(_delta):
+func PhysicsUpdate(_delta):
 	if enemy:
 		enemy.velocity = move_direction * speed
+	if is_instance_valid(player):		
+		var direction = player.global_position - enemy.global_position
+		ray_cast.target_position = direction
+		if ray_cast.is_colliding():
+			if ray_cast.get_collider() == player and ray_cast.target_position.length() < view_distance:
+				Transitioned.emit(self, "chase")
+				
+
+		
+	

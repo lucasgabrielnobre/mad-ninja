@@ -1,6 +1,8 @@
 extends CharacterBody2D
+
+var game_manager : Node
+var slash : Area2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var game_manager: Node = $"../GameManager"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var shurikens = 0
 var max_speed = 1500
@@ -13,6 +15,7 @@ var shuriken_scene = preload("res://scenes/player/shuriken.tscn")
 var slash_scene = preload("res://scenes/player/slash.tscn")
 var direction = Vector2.ZERO
 func ready():
+	game_manager = get_tree().get_first_node_in_group("GameManager")
 	var current_scene_file = get_tree().current_scene.scene_file_path
 	print(current_scene_file)
 func player_movement(delta):
@@ -41,8 +44,8 @@ func shoot_shuriken():
 	shuriken.direction = (get_global_mouse_position() - global_position).normalized()
 	shuriken.position = get_global_position() + shuriken.direction * 60
 	get_tree().get_root().call_deferred("add_child", shuriken)
-func slash():
-	var slash = slash_scene.instantiate()
+func slashing():
+	slash = slash_scene.instantiate()
 	slash.game_manager = game_manager
 	slash.direction = (get_global_mouse_position() - global_position).normalized()
 	slash.position =  get_global_position() + slash.direction * 60
@@ -57,7 +60,7 @@ func slash_physics(delta):
 		velocity =  velocity.limit_length(max_speed)
 	else:
 		if Input.is_action_just_pressed("slash"):
-			slash()
+			slashing()
 			$SlashTimer.start()
 			#velocity += (get_global_mouse_position() - global_position).normalized() * dash * delta * 2
 func shurikens_count():

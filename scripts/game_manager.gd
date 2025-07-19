@@ -44,6 +44,8 @@ func input_Manager():
 	if Input.is_action_just_pressed("next_level") and next_level:
 		LevelManager.current_level += 1
 		get_tree().change_scene_to_file(next_level_path)
+	if Input.is_key_pressed(KEY_1):
+		change_levels(1)
 	if Input.is_key_pressed(KEY_2):
 		change_levels(2)
 	if Input.is_key_pressed(KEY_3):

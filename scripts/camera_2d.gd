@@ -1,8 +1,9 @@
 extends Camera2D
 # evitar erros de player não encontratado
 var player : Node2D
-@onready var game_manager: Node = get_node("/root/Level" + str(LevelManager.current_level) + "/GameManager")
+var game_manager : Node
 func _ready():
+	game_manager = get_tree().get_first_node_in_group("GameManager")
 	var player_path = "/root/Level" + str(LevelManager.current_level) +"/Player"
 	if has_node(player_path):
 		player = get_node(player_path)

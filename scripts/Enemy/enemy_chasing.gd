@@ -1,8 +1,10 @@
 extends CharacterBody2D
-class_name enemy_chasing
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var ray_cast: RayCast2D = $RayCast2D
+var game_manager : Node
+func _ready():
+	game_manager = get_tree().get_first_node_in_group("GameManager")
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	if velocity.length() > 0:
@@ -15,7 +17,9 @@ func _physics_process(_delta: float) -> void:
 	else:
 		animation_player.play("RESET")
 		sprite.play("idle")
-	
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		game_manager.game_over()
 """
 
 @onready var area_2d: Area2D = $Area2D

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://b01562m1tx8xi"]
+[gd_scene load_steps=10 format=4 uid="uid://b01562m1tx8xi"]
 
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_e127x"]
 [ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="2_e127x"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="4_s45gt"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_4vryo"]
 [ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemies/enemy_gun.tscn" id="6_e127x"]
+[ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="7_heu5o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cr2eh"]
 texture = ExtResource("3_heu5o")
@@ -77,6 +78,9 @@ position = Vector2(-40, -416)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="EnemyGun" parent="Enemies" instance=ExtResource("6_e127x")]
-position = Vector2(132.355, -418.147)
+position = Vector2(837.011, -274.721)
+
+[node name="EnemyChasing" parent="Enemies" instance=ExtResource("7_heu5o")]
+position = Vector2(203.28, -428.824)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]

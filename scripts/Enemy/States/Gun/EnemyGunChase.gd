@@ -8,6 +8,9 @@ var bullet_scene = preload("res://scenes/enemies/guns/bullet.tscn")
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	timer.start()
+
+func random_():
+	pass
 	
 func Exit():
 	timer.stop()
@@ -19,7 +22,8 @@ func Update(_delta):
 		if timer.is_stopped():
 			shoot()
 			timer.start()
-
+func PhysicsUpdate(delta):
+	pass
 func handle_sprite():
 	gun.look_at(player.position) # arma mira no player
 	# código para virar a arma

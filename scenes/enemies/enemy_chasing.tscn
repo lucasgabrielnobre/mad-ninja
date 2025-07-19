@@ -119,11 +119,15 @@ ray_cast = NodePath("../../RayCast2D")
 move_speed = 60.0
 metadata/_custom_type_script = "uid://b4ipwk0en3t1s"
 
-[node name="Chase" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("enemy", "ray_cast")]
+[node name="Chase" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("chase_timer", "enemy", "ray_cast")]
 script = ExtResource("6_3h2kt")
+chase_timer = NodePath("../../Timer")
 enemy = NodePath("../..")
 ray_cast = NodePath("../../RayCast2D")
 move_speed = 120.0
 metadata/_custom_type_script = "uid://csu51rp04oyrs"
+
+[node name="Timer" type="Timer" parent="." index="6"]
+one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,9 +1,5 @@
-res://scenes/enemies/enemy_gun.tscn
-res://scripts/Enemy/States/Gun/EnemyGunChase.gd
 res://scenes/enemies/enemy_chasing.tscn
 res://scenes/levels/level4.tscn
+res://scripts/Enemy/States/EnemyChase.gd
 res://scenes/player/slash.tscn
 res://scenes/hud.tscn
-res://scripts/Enemy/States/EnemyChase.gd
-res://scripts/Enemy/bullet.gd
-res://scripts/Enemy/bullet_smg.gd

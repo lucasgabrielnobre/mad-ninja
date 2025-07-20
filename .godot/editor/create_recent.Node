@@ -1,14 +1,14 @@
+NavigationAgent2D
+NavigationRegion2D
 Timer
+Node
 AnimationPlayer
 RayCast2D
 EnemyGunChase
 EnemyIdle
-Node
 Enemy
 AnimatedSprite2D
 RichTextLabel
 CollisionShape2D
 Area2D
 Sprite2D
-Node2D
-CanvasModulate

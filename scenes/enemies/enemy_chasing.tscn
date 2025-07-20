@@ -95,7 +95,6 @@ target_position = Vector2(120, 0)
 sprite_frames = SubResource("SpriteFrames_3h2kt")
 
 [node name="CollisionShape2D" parent="." index="2"]
-visible = false
 shape = SubResource("RectangleShape2D_7p1mj")
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
@@ -119,9 +118,10 @@ ray_cast = NodePath("../../RayCast2D")
 move_speed = 60.0
 metadata/_custom_type_script = "uid://b4ipwk0en3t1s"
 
-[node name="Chase" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("chase_timer", "enemy", "ray_cast")]
+[node name="Chase" type="Node" parent="StateMachine" index="1" node_paths=PackedStringArray("chase_timer", "navigation_agent", "enemy", "ray_cast")]
 script = ExtResource("6_3h2kt")
 chase_timer = NodePath("../../Timer")
+navigation_agent = NodePath("../../NavigationAgent2D")
 enemy = NodePath("../..")
 ray_cast = NodePath("../../RayCast2D")
 move_speed = 120.0
@@ -129,5 +129,10 @@ metadata/_custom_type_script = "uid://csu51rp04oyrs"
 
 [node name="Timer" type="Timer" parent="." index="6"]
 one_shot = true
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="7"]
+path_postprocessing = 1
+radius = 200.0
+debug_enabled = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

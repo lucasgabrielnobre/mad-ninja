@@ -1,3 +1,5 @@
+CollisionShape2D
+Area2D
 NavigationAgent2D
 NavigationRegion2D
 Timer
@@ -9,6 +11,4 @@ EnemyIdle
 Enemy
 AnimatedSprite2D
 RichTextLabel
-CollisionShape2D
-Area2D
 Sprite2D

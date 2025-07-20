@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bt4gkl2wr7rgf"]
+[gd_scene load_steps=10 format=4 uid="uid://bt4gkl2wr7rgf"]
 
 [ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="1_ax2ff"]
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_in5bs"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bqvb2i66olrdc" path="res://assets/wall-tiles.png" id="3_e2o36"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_oswwn"]
 [ext_resource type="PackedScene" uid="uid://diwggmj546y1g" path="res://scenes/enemies/enemy_static.tscn" id="6_in5bs"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_in5bs"]
+vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)])
+agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5sy4"]
 texture = ExtResource("3_e2o36")
@@ -23,6 +29,7 @@ texture_region_size = Vector2i(64, 64)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 1:1/0 = 0
+1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_in5bs")
 2:1/0 = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 3:1/0 = 0
@@ -49,6 +56,7 @@ texture_region_size = Vector2i(64, 64)
 [sub_resource type="TileSet" id="TileSet_uwrxv"]
 tile_size = Vector2i(64, 64)
 physics_layer_0/collision_layer = 1
+navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_u5sy4")
 
 [node name="Level0" type="Node2D"]

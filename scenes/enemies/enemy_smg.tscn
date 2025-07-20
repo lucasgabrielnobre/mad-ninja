@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://klr3gel5g1xy"]
+[gd_scene load_steps=9 format=3 uid="uid://klr3gel5g1xy"]
 
 [ext_resource type="PackedScene" uid="uid://d4lrujwynh212" path="res://scenes/enemies/enemy_simple.tscn" id="1_erets"]
 [ext_resource type="Script" uid="uid://5o20b3a0mvmt" path="res://scripts/Enemy/enemy_smg.gd" id="2_qd1b3"]
@@ -27,6 +27,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8448a"]
+radius = 24.0
+
 [node name="EnemySMG" instance=ExtResource("1_erets")]
 script = ExtResource("2_qd1b3")
 
@@ -34,7 +37,7 @@ script = ExtResource("2_qd1b3")
 sprite_frames = SubResource("SpriteFrames_e4l7e")
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = true
+shape = SubResource("CircleShape2D_8448a")
 
 [node name="TimerBullet" type="Timer" parent="." index="2"]
 wait_time = 0.3

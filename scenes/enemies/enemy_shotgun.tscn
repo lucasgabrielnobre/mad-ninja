@@ -29,7 +29,3 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_qndm6")
-
-[node name="CollisionShape2D" parent="." index="1"]
-visible = true
-position = Vector2(0, 0)

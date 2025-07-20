@@ -10,10 +10,6 @@ func _physics_process(_delta: float) -> void:
 	if velocity.length() > 0:
 		sprite.play("walk")
 		animation_player.play("walk")
-		if  velocity.x > 0:
-			sprite.flip_h = false
-		else:
-			sprite.flip_h = true
 	else:
 		animation_player.play("RESET")
 		sprite.play("idle")

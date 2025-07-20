@@ -5,6 +5,7 @@ var stop_time : float
 var speed : float
 var move_direction : Vector2
 var wander_time : float
+@onready var sprite: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
 func randomize_wander():
 	speed = move_speed # reset speed
@@ -33,7 +34,10 @@ func PhysicsUpdate(_delta):
 		if ray_cast.is_colliding():
 			if ray_cast.get_collider() == player and ray_cast.target_position.length() < view_distance:
 				Transitioned.emit(self, "chase")
-				
+		if  enemy.velocity.x > 0:
+			sprite.flip_h = false
+		elif enemy.velocity.x < 0:
+			sprite.flip_h = true
 
 		
 	

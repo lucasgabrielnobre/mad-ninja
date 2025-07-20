@@ -26,8 +26,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lg8gs"]
-size = Vector2(56, 53)
+[sub_resource type="CircleShape2D" id="CircleShape2D_lpbuc"]
+radius = 24.0
 
 [node name="EnemyStatic" instance=ExtResource("1_ri1c0")]
 script = ExtResource("2_lg8gs")
@@ -36,12 +36,4 @@ script = ExtResource("2_lg8gs")
 sprite_frames = SubResource("SpriteFrames_l7gun")
 
 [node name="CollisionShape2D" parent="." index="1"]
-visible = true
-
-[node name="Area2D" type="Area2D" parent="." index="2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_lg8gs")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+shape = SubResource("CircleShape2D_lpbuc")

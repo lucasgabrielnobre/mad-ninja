@@ -1,12 +1,12 @@
 extends Enemy
-class_name EnemyGunChase
+class_name EnemySMGChase
 
 @export var gun_timer : Timer
 @export var chase_timer : Timer
 @export var gun : Sprite2D
 @export var sprite : AnimatedSprite2D
 @export var navigation_agent : NavigationAgent2D
-var bullet_scene = preload("res://scenes/enemies/guns/bullet.tscn")
+var bullet_scene = preload("res://scenes/enemies/guns/bullet_smg.tscn")
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	gun_timer.start()
@@ -40,7 +40,7 @@ func handle_sprite():
 		gun.flip_v = true
 	elif ((gun.global_rotation_degrees + 180) < 270):
 		gun.flip_v = false
-	gun.position = (player.global_position - enemy.global_position).normalized() * 70.0
+	gun.position = (player.global_position - enemy.global_position).normalized() * 40.0
 	if player.global_position.x < enemy.global_position.x:
 		sprite.flip_h = true
 	else:

@@ -1,7 +1,17 @@
 extends CharacterBody2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var ray_cast: RayCast2D = $RayCast2D
+var game_manager : Node
 
 func _physics_process(delta: float) -> void:
 	move_and_slide()
+	if velocity.length() > 0:
+		sprite.play("walk")
+		animation_player.play("walk")
+	else:
+		animation_player.play("RESET")
+		sprite.play("idle")
 
 """
 var speed = 20.0

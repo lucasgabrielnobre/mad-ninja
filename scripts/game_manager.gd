@@ -37,6 +37,7 @@ func enemy_died():
 		player.shurikens += 1
 func change_levels(number):
 	LevelManager.current_level = number
+	await get_tree().create_timer(0.1).timeout
 	get_tree().change_scene_to_file(FILE_LEVEL + str(number) + ".tscn")
 func input_Manager():
 	if Input.is_action_just_pressed("reset"):

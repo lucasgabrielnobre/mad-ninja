@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://b01562m1tx8xi"]
+[gd_scene load_steps=9 format=4 uid="uid://b01562m1tx8xi"]
 
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_e127x"]
 [ext_resource type="PackedScene" uid="uid://cy24h7t0nwkns" path="res://scenes/tile_set.tscn" id="1_heu5o"]
 [ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="2_e127x"]
+[ext_resource type="PackedScene" uid="uid://klr3gel5g1xy" path="res://scenes/enemies/enemy_smg.tscn" id="4_4vryo"]
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="4_s45gt"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_4vryo"]
 [ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemies/enemy_gun.tscn" id="6_e127x"]
@@ -16,10 +17,13 @@ tile_map_data = PackedByteArray("AAAAAPX/AAABAAEAAAAAAPb/AAABAAEAAAAAAPf/AAABAAE
 [node name="Enemies" type="Node" parent="."]
 
 [node name="EnemyGun" parent="Enemies" instance=ExtResource("6_e127x")]
-position = Vector2(837.011, -274.721)
+position = Vector2(800, -312)
 
 [node name="EnemyChasing" parent="Enemies" instance=ExtResource("7_heu5o")]
 position = Vector2(88, -560)
+
+[node name="EnemySMG" parent="Enemies" instance=ExtResource("4_4vryo")]
+position = Vector2(416, -488)
 
 [node name="GameManager" parent="." instance=ExtResource("1_e127x")]
 unique_name_in_owner = true

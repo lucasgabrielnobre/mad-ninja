@@ -17,22 +17,22 @@ tile_map_data = PackedByteArray("AAACAPr/AAAAAAEAAAADAPX/AAABAAEAAAADAPb/AAABAAE
 [node name="Enemies" type="Node" parent="."]
 
 [node name="EnemyGun" parent="Enemies" instance=ExtResource("6_e127x")]
-position = Vector2(776, -256)
+position = Vector2(352, -472)
 
 [node name="EnemyChasing" parent="Enemies" instance=ExtResource("7_heu5o")]
-position = Vector2(264, -408)
+position = Vector2(216, -352)
 
 [node name="EnemySMG" parent="Enemies" instance=ExtResource("4_4vryo")]
-position = Vector2(776, -560)
+position = Vector2(472, -424)
 
 [node name="EnemyChasing2" parent="Enemies" instance=ExtResource("7_heu5o")]
-position = Vector2(896, -408)
+position = Vector2(224, -424)
 
 [node name="EnemyChasing3" parent="Enemies" instance=ExtResource("7_heu5o")]
-position = Vector2(672, -416)
+position = Vector2(472, -352)
 
 [node name="EnemyChasing4" parent="Enemies" instance=ExtResource("7_heu5o")]
-position = Vector2(448, -408)
+position = Vector2(352, -360)
 
 [node name="GameManager" parent="." instance=ExtResource("1_e127x")]
 unique_name_in_owner = true
@@ -46,7 +46,7 @@ script = ExtResource("2_e127x")
 [node name="Player" parent="." instance=ExtResource("4_s45gt")]
 unique_name_in_owner = true
 z_index = 100
-position = Vector2(344, -152)
+position = Vector2(344, -48)
 
 [node name="HUD" parent="." instance=ExtResource("5_4vryo")]
 

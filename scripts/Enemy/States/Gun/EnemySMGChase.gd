@@ -7,6 +7,7 @@ class_name EnemySMGChase
 @export var sprite : AnimatedSprite2D
 @export var navigation_agent : NavigationAgent2D
 var bullet_scene = preload("res://scenes/enemies/guns/bullet_smg.tscn")
+var bullets_shooted = 0
 func Enter():
 	player = get_tree().get_first_node_in_group("Player")
 	gun_timer.start()
@@ -18,8 +19,12 @@ func Update(_delta):
 		return
 	handle_sprite()
 	if gun_timer.is_stopped():
-		shoot()
+		bullets_shooted += 1
+		if bullets_shooted < 4:
+			shoot()
 		gun_timer.start()
+	elif bullets_shooted > 8:
+		bullets_shooted = 0
 func PhysicsUpdate(_delta):
 	if !is_instance_valid(player):
 		Transitioned.emit(self, "idle")

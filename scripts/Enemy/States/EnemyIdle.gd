@@ -38,12 +38,13 @@ func PhysicsUpdate(_delta):
 		elif enemy.velocity.x < 0:
 			sprite.flip_h = true
 func field_of_view():
-	if is_instance_valid(player) and enemy:
-		var direction = player.global_position - enemy.global_position
-		ray_cast.target_position = direction
-		if ray_cast.is_colliding():
-			if ray_cast.get_collider() == player and ray_cast.target_position.length() < view_distance:
-				Transitioned.emit(self, "chase")
+	if ray_cast:
+		if is_instance_valid(player) and enemy:
+			var direction = player.global_position - enemy.global_position
+			ray_cast.target_position = direction
+			if ray_cast.is_colliding():
+				if ray_cast.get_collider() == player and ray_cast.target_position.length() < view_distance:
+					Transitioned.emit(self, "chase")
 func handle_gun():
 	var angle = move_direction.angle()
 	# Calcula a posição na circunferência (raio 70) com base nesse ângulo

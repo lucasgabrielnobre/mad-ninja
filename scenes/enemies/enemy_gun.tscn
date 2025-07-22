@@ -31,7 +31,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -90,7 +90,6 @@ script = ExtResource("2_5o30m")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_kla8j")
-animation = &"walk"
 
 [node name="CollisionShape2D" parent="." index="2"]
 shape = SubResource("CircleShape2D_kla8j")
@@ -130,7 +129,6 @@ metadata/_custom_type_script = "uid://cp0cgb4dtbqe"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8"]
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
 libraries = {

@@ -130,7 +130,6 @@ metadata/_custom_type_script = "uid://cem58tqy255a4"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8"]
 path_postprocessing = 1
-debug_enabled = true
 
 [node name="RayCast2D" type="RayCast2D" parent="." index="9"]
 

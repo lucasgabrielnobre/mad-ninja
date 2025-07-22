@@ -29,6 +29,7 @@ func _process(_delta):
 		hud.get_node("ShurikensCounter").set_text(player.shurikens_count())
 	if enemies_count < 1:
 		next_level = true
+		hud.get_node("GameOver").visible = false
 		hud.get_node("NextLevel").visible = true
 		canvas_modulate.color = "#a6a6a6"
 func enemy_died():

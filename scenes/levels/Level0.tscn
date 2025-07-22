@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bt4gkl2wr7rgf"]
+[gd_scene load_steps=20 format=4 uid="uid://bt4gkl2wr7rgf"]
 
 [ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="1_ax2ff"]
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_in5bs"]
@@ -6,6 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bqvb2i66olrdc" path="res://assets/wall-tiles.png" id="3_e2o36"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_oswwn"]
 [ext_resource type="PackedScene" uid="uid://diwggmj546y1g" path="res://scenes/enemies/enemy_static.tscn" id="6_in5bs"]
+[ext_resource type="Texture2D" uid="uid://jolwaiued5jl" path="res://assets/enemy.png" id="7_ue060"]
+[ext_resource type="Texture2D" uid="uid://cgvehdktvoq8e" path="res://assets/slash-Sheet.png" id="8_oswwn"]
+[ext_resource type="Texture2D" uid="uid://cmx4iphwuafqk" path="res://assets/player.png" id="9_c2uwi"]
+[ext_resource type="FontFile" uid="uid://dmwnkxtfdm35q" path="res://assets/font/pixel.ttf" id="10_n5l3n"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_in5bs"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -59,6 +63,51 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_u5sy4")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6se2n"]
+atlas = ExtResource("7_ue060")
+region = Rect2(0, 0, 56, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hsw41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6se2n")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auvjl"]
+atlas = ExtResource("8_oswwn")
+region = Rect2(0, 0, 40, 56)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l5fl4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auvjl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx170"]
+atlas = ExtResource("9_c2uwi")
+region = Rect2(0, 0, 64, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h27y2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nx170")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
 [node name="Level0" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_in5bs")]
@@ -74,18 +123,48 @@ use_parent_material = true
 tile_map_data = PackedByteArray("AAD6//3/AAABAAEAAAD6//7/AAABAAEAAAD6////AAABAAEAAAD6/wAAAAABAAEAAAD6/wEAAAABAAEAAAD6/wIAAAABAAEAAAD7//3/AAABAAEAAAD7//7/AAABAAEAAAD7////AAABAAEAAAD7/wAAAAABAAEAAAD7/wEAAAABAAEAAAD7/wIAAAABAAEAAAD8//3/AAABAAEAAAD8//7/AAABAAEAAAD8////AAABAAEAAAD8/wAAAAABAAEAAAD8/wEAAAABAAEAAAD8/wIAAAABAAEAAAD9//3/AAABAAEAAAD9//7/AAABAAEAAAD9////AAABAAEAAAD9/wAAAAABAAEAAAD9/wEAAAABAAEAAAD9/wIAAAABAAEAAAD+//3/AAABAAEAAAD+//7/AAABAAEAAAD+////AAABAAEAAAD+/wAAAAABAAEAAAD+/wEAAAABAAEAAAD+/wIAAAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAAAAP3/AAABAAEAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAABAAIAAAABAAEAAAACAP3/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAADAP3/AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAADAAAAAAABAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAAEAP3/AAACAAEAAAAEAP7/AAACAAEAAAAEAP//AAACAAEAAAAEAAAAAAACAAEAAAAEAAEAAAACAAEAAAAEAAIAAAACAAEAAAD5/wMAAAAAAAIAAAD5//7/AAAAAAEAAAD5////AAAAAAEAAAD5/wAAAAAAAAEAAAD5/wEAAAAAAAEAAAD5/wIAAAAAAAEAAAD5//z/AAAAAAAAAAD5//3/AAAAAAEAAAD6//z/AAABAAAAAAD7//z/AAABAAAAAAD8//z/AAABAAAAAAD9//z/AAABAAAAAAD+//z/AAABAAAAAAD///z/AAABAAAAAAAAAPz/AAABAAAAAAABAPz/AAABAAAAAAACAPz/AAABAAAAAAADAPz/AAABAAAAAAAEAPz/AAACAAAAAAD6/wMAAAABAAIAAAD7/wMAAAABAAIAAAD8/wMAAAABAAIAAAD9/wMAAAABAAIAAAD+/wMAAAABAAIAAAD//wMAAAABAAIAAAAAAAMAAAABAAIAAAABAAMAAAABAAIAAAACAAMAAAABAAIAAAADAAMAAAABAAIAAAAEAAMAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_uwrxv")
 
-[node name="Player" parent="." instance=ExtResource("2_bbvxl")]
-unique_name_in_owner = true
-z_index = 100
-position = Vector2(-192, 8)
-
 [node name="HUD" parent="." instance=ExtResource("5_oswwn")]
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="EnemyStatic" parent="Enemies" instance=ExtResource("6_in5bs")]
-
-[node name="EnemyStatic2" parent="Enemies" instance=ExtResource("6_in5bs")]
-position = Vector2(200, 0)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="EnemyStatic" parent="." instance=ExtResource("6_in5bs")]
+position = Vector2(40, 16)
+
+[node name="Player" parent="." instance=ExtResource("2_bbvxl")]
+unique_name_in_owner = true
+z_index = 100
+position = Vector2(-152, 16)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -376.0
+offset_top = -184.0
+offset_right = 248.0
+offset_bottom = -72.0
+color = Color(0, 0, 0, 0.341176)
+
+[node name="EnemyExample" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12.8, -111)
+scale = Vector2(0.579821, 0.615385)
+sprite_frames = SubResource("SpriteFrames_hsw41")
+flip_h = true
+
+[node name="SlashExample" type="AnimatedSprite2D" parent="."]
+position = Vector2(-60.8, -111)
+scale = Vector2(0.55, 0.607143)
+sprite_frames = SubResource("SpriteFrames_l5fl4")
+
+[node name="PlayerExample" type="AnimatedSprite2D" parent="."]
+position = Vector2(-100.8, -111)
+scale = Vector2(0.6, 0.629121)
+sprite_frames = SubResource("SpriteFrames_h27y2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -288.0
+offset_top = -176.0
+offset_right = 158.0
+offset_bottom = -136.0
+theme_override_fonts/font = ExtResource("10_n5l3n")
+theme_override_font_sizes/font_size = 20
+text = "Use o botao direito para atacar"

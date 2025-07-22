@@ -1,12 +1,16 @@
-[gd_scene load_steps=11 format=4 uid="uid://y1obx04d5t1v"]
+[gd_scene load_steps=24 format=4 uid="uid://y1obx04d5t1v"]
 
 [ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="1_ax2ff"]
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_m00rq"]
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="2_bbvxl"]
 [ext_resource type="Texture2D" uid="uid://bqvb2i66olrdc" path="res://assets/wall-tiles.png" id="3_e2o36"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_oswwn"]
-[ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemies/enemy_gun.tscn" id="6_c2uwi"]
-[ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="7_n5l3n"]
+[ext_resource type="Texture2D" uid="uid://jolwaiued5jl" path="res://assets/enemy.png" id="8_6owa4"]
+[ext_resource type="Texture2D" uid="uid://b44evh4vgjh8n" path="res://assets/shuriken_static.png" id="9_n5pya"]
+[ext_resource type="Texture2D" uid="uid://cmx4iphwuafqk" path="res://assets/player.png" id="10_kypp1"]
+[ext_resource type="PackedScene" uid="uid://diwggmj546y1g" path="res://scenes/enemies/enemy_static.tscn" id="11_lha2r"]
+[ext_resource type="Texture2D" uid="uid://bw0w25m7gjyv0" path="res://assets/shuriken_throw-Sheet.png" id="11_ukjja"]
+[ext_resource type="FontFile" uid="uid://dmwnkxtfdm35q" path="res://assets/font/pixel.ttf" id="12_p5s5a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_m00rq"]
 vertices = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
@@ -60,6 +64,73 @@ physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_u5sy4")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6se2n"]
+atlas = ExtResource("8_6owa4")
+region = Rect2(0, 0, 56, 52)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njy47"]
+atlas = ExtResource("9_n5pya")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7nyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6se2n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njy47")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nx170"]
+atlas = ExtResource("10_kypp1")
+region = Rect2(0, 0, 64, 52)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xbvxr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nx170")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bspq0"]
+atlas = ExtResource("11_ukjja")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dqba7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bspq0")
+}],
+"loop": false,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usw5k"]
+atlas = ExtResource("9_n5pya")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jsker"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usw5k")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Level1" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_m00rq")]
@@ -77,17 +148,69 @@ position = Vector2(-158, 134)
 
 [node name="TileSet" type="TileMapLayer" parent="."]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAD7/wQAAAAAAAIAAAD8/wQAAAABAAIAAAD9/wQAAAABAAIAAAD+/wQAAAABAAIAAAD//wQAAAABAAIAAAAEAAAAAAACAAIAAAAEAP7/AAACAAEAAAAEAP3/AAACAAEAAAAEAPz/AAACAAEAAAAEAPv/AAACAAAAAAADAPv/AAABAAAAAAACAPv/AAABAAAAAAABAPv/AAABAAAAAAAAAPv/AAABAAAAAAD///v/AAAAAAAAAAD7/wEAAAAAAAEAAAD7/wIAAAAAAAEAAAD7/wMAAAAAAAEAAAD8/wMAAAABAAEAAAD9/wIAAAABAAEAAAD9/wEAAAABAAEAAAD+/wAAAAABAAEAAAD+////AAABAAEAAAD///7/AAABAAEAAAD8//7/AAAAAAAAAAD8/wAAAAABAAEAAAD8/wEAAAABAAEAAAD8/wIAAAABAAEAAAD9//3/AAAAAAAAAAD9//7/AAAFAAIAAAD9////AAABAAEAAAD9/wAAAAABAAEAAAD9/wMAAAABAAEAAAD+//z/AAAAAAAAAAD+//3/AAAFAAIAAAD+//7/AAABAAEAAAD+/wEAAAABAAEAAAD+/wIAAAABAAEAAAD+/wMAAAABAAEAAAD///z/AAAFAAIAAAD///3/AAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAAAAPz/AAABAAEAAAAAAP3/AAABAAEAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAEAAAAAAAMAAAADAAAAAAABAPz/AAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAABAAIAAAADAAAAAAACAPz/AAABAAEAAAACAP3/AAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAADAAAAAAADAPz/AAABAAEAAAADAP3/AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAADAAAAAAADAAAAAAAEAP//AAACAAEAAAD7/wAAAAAAAAEAAAD7////AAAAAAAAAAD8////AAAFAAIAAAAAAAQAAAACAAIAAAABAAMAAAACAAIAAAACAAIAAAACAAIAAAADAAEAAAACAAIAAAA=")
+tile_map_data = PackedByteArray("AAD8/wQAAAABAAIAAAD9/wQAAAABAAIAAAD+/wQAAAABAAIAAAD//wQAAAABAAIAAAD8/wMAAAABAAEAAAD9/wIAAAABAAEAAAD9/wEAAAABAAEAAAD+/wAAAAABAAEAAAD+////AAABAAEAAAD///7/AAABAAEAAAD8/wAAAAABAAEAAAD8/wEAAAABAAEAAAD8/wIAAAABAAEAAAD9////AAABAAEAAAD9/wAAAAABAAEAAAD9/wMAAAABAAEAAAD+//7/AAABAAEAAAD+/wEAAAABAAEAAAD+/wIAAAABAAEAAAD+/wMAAAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAAAAAQAAAABAAIAAAABAAQAAAABAAIAAAACAAQAAAABAAIAAAADAAQAAAABAAIAAAAEAAQAAAABAAIAAAAFAAQAAAACAAIAAAAFAAMAAAACAAEAAAAFAAIAAAACAAEAAAAFAAEAAAACAAEAAAAFAAAAAAACAAEAAAAFAP//AAACAAEAAAAFAP7/AAACAAEAAAD7/wQAAAABAAIAAAD6/wQAAAAAAAIAAAD6/wMAAAAAAAEAAAD6/wIAAAAAAAEAAAD6/wEAAAAAAAEAAAD6/wAAAAAAAAEAAAD6////AAAAAAEAAAD6//7/AAAAAAEAAAD6//3/AAAAAAAAAAD7//3/AAABAAAAAAD8//3/AAABAAAAAAD9//3/AAABAAAAAAD+//3/AAABAAAAAAD///3/AAABAAAAAAAAAP3/AAABAAAAAAABAP3/AAABAAAAAAACAP3/AAABAAAAAAADAP3/AAABAAAAAAAEAP3/AAABAAAAAAAFAP3/AAACAAAAAAD7//7/AAABAAEAAAD7////AAABAAEAAAD7/wAAAAABAAEAAAD7/wEAAAABAAEAAAD7/wIAAAABAAEAAAD7/wMAAAABAAEAAAD8//7/AAABAAEAAAD8////AAABAAEAAAD9//7/AAABAAEAAAAAAAMAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAADAAAAAAABAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAADAAMAAAABAAEAAAAEAP7/AAABAAEAAAAEAP//AAABAAEAAAAEAAAAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_uwrxv")
 
 [node name="HUD" parent="." instance=ExtResource("5_oswwn")]
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="EnemyGun" parent="Enemies" instance=ExtResource("6_c2uwi")]
-position = Vector2(148, -164)
-
-[node name="EnemyChasing" parent="Enemies" instance=ExtResource("7_n5l3n")]
-position = Vector2(32, -48)
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -312.0
+offset_top = -120.0
+offset_right = 312.0
+offset_bottom = 16.0
+color = Color(0, 0, 0, 0.341176)
+
+[node name="EnemyExample" type="AnimatedSprite2D" parent="."]
+position = Vector2(279, -90)
+scale = Vector2(0.579821, 0.615385)
+sprite_frames = SubResource("SpriteFrames_j7nyf")
+flip_h = true
+
+[node name="PlayerExample" type="AnimatedSprite2D" parent="."]
+position = Vector2(152, -88)
+scale = Vector2(0.6, 0.629121)
+sprite_frames = SubResource("SpriteFrames_xbvxr")
+
+[node name="PlayerExample2" type="AnimatedSprite2D" parent="."]
+position = Vector2(262, -33)
+scale = Vector2(0.6, 0.629121)
+sprite_frames = SubResource("SpriteFrames_xbvxr")
+
+[node name="ShurikenExample" type="AnimatedSprite2D" parent="."]
+position = Vector2(235, -90)
+scale = Vector2(0.58, 0.6)
+sprite_frames = SubResource("SpriteFrames_dqba7")
+flip_h = true
+
+[node name="ShurikenExample3" type="AnimatedSprite2D" parent="."]
+position = Vector2(-232, -49)
+scale = Vector2(0.58, 0.6)
+sprite_frames = SubResource("SpriteFrames_jsker")
+flip_h = true
+
+[node name="ShurikenExample4" type="AnimatedSprite2D" parent="."]
+position = Vector2(-208, -88)
+scale = Vector2(0.58, 0.6)
+sprite_frames = SubResource("SpriteFrames_jsker")
+flip_h = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -304.0
+offset_top = -112.0
+offset_right = 116.0
+offset_bottom = 2.0
+theme_override_fonts/font = ExtResource("12_p5s5a")
+theme_override_font_sizes/font_size = 20
+text = "Ganhe      ao eliminar inimigos.
+Use       com botao esquerdo
+eliminar e teleportar"
+
+[node name="EnemyStatic" parent="." instance=ExtResource("11_lha2r")]
+position = Vector2(-32, 136)
+
+[node name="EnemyStatic2" parent="." instance=ExtResource("11_lha2r")]
+position = Vector2(192, 136)

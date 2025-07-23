@@ -51,7 +51,7 @@ func handle_sprite():
 	else:
 		sprite.flip_h = false
 func shoot():
-	if is_instance_valid(player):
+	if is_instance_valid(player) and ray_cast.get_collider() == player:
 		gun.get_node("AnimationPlayer").play("shoot")
 		var bullet = bullet_scene.instantiate() 
 		bullet.position = gun.get_node("BulletLocation").global_position

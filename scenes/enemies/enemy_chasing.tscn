@@ -107,7 +107,6 @@ initial_state = NodePath("Idle")
 script = ExtResource("5_vq3xo")
 enemy = NodePath("../..")
 ray_cast = NodePath("../../RayCast2D")
-move_speed = 60.0
 view_distance = 400.0
 metadata/_custom_type_script = "uid://b4ipwk0en3t1s"
 

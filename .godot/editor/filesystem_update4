@@ -1,7 +1,1 @@
 res://scenes/levels/level4.tscn
-res://scripts/Enemy/States/EnemyIdle.gd
-res://scenes/enemies/enemy_chasing.tscn
-res://scenes/enemies/enemy_chasing_simple.tscn
-res://scripts/Enemy/States/EnemyChase.gd
-res://scripts/Enemy/States/Gun/EnemyGunChase.gd
-res://scenes/enemies/enemy_gun.tscn

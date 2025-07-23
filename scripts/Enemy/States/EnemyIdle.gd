@@ -30,6 +30,8 @@ func Update(delta):
 func PhysicsUpdate(_delta):
 	if !enemy:
 		return
+	if enemy.is_on_wall() or enemy.is_on_ceiling() or enemy.is_on_floor():
+		move_direction *= - 1
 	enemy.velocity = move_direction * speed
 	if is_instance_valid(player) and enemy:		
 		field_of_view()	
@@ -44,7 +46,7 @@ func field_of_view():
 			ray_cast.target_position = direction
 			if ray_cast.is_colliding():
 				if ray_cast.get_collider() == player and ray_cast.target_position.length() < view_distance:
-					alert_nearby_enemies(get_nearby_enemies(enemy, 8000.0))
+					alert_nearby_enemies(get_nearby_enemies(enemy))
 					Transitioned.emit(self, "chase")
 func handle_gun():
 	var angle = move_direction.angle()
@@ -58,10 +60,10 @@ func handle_gun():
 	gun.position = offset
 	gun.rotation = offset.angle()
 		
-func get_nearby_enemies(origin: CharacterBody2D, radius: float = 400.0) -> Array:
+func get_nearby_enemies(origin: CharacterBody2D, radius: float = 200.0) -> Array:
 	var enemies_in_radius = []
 	var all_enemies = get_tree().get_nodes_in_group("enemies")  # Certifique-se de adicionar seus inimigos a esse grupo
-	
+	print(radius)
 	for enemy in all_enemies:
 		if enemy == origin:  # Evita considerar o próprio personagem (caso esteja no grupo)
 			continue
@@ -76,7 +78,6 @@ func alert_nearby_enemies(nearby : Array):
 	var i = 0
 	for en in nearby:
 		i += 1
-		print(str(i) + ": " + str(en))
 		var current_state = en.get_node("StateMachine").current_state
 		if current_state:
 			current_state.Transitioned.emit(current_state, "chase")

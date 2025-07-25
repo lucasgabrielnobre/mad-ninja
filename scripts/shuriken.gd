@@ -16,7 +16,7 @@ func _on_area_entered(area: Area2D) -> void:
 		if area.is_in_group("enemies_area"):
 			player.position = global_position
 			player.get_node("AnimationPlayer").play("appear")
-			game_manager.enemy_died()
+			game_manager.enemy_died("shuriken")
 			area.get_parent().queue_free()
 			queue_free()
 

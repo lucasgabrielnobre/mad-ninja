@@ -9,7 +9,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
-		if is_instance_valid(game_manager):
+		if is_instance_valid(game_manager) and !game_manager.is_player_invicible():	
 			game_manager.game_over()
 			queue_free()
 	elif body is TileMapLayer:

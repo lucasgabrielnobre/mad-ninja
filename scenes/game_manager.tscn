@@ -4,3 +4,9 @@
 
 [node name="GameManager" type="Node" groups=["GameManager"]]
 script = ExtResource("1_hwd4i")
+
+[node name="InvicibilityTimer" type="Timer" parent="."]
+wait_time = 100.0
+one_shot = true
+
+[connection signal="timeout" from="InvicibilityTimer" to="." method="_on_invicibility_timer_timeout"]

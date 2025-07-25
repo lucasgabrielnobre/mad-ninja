@@ -63,3 +63,42 @@ text = "Pressione [color=yellow]espaco[/color] para continuar"
 autowrap_mode = 1
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LevelTimer" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -48.0
+offset_top = 48.0
+offset_right = 40.0
+offset_bottom = 84.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_font_sizes/font_size = 20
+text = "
+"
+
+[node name="TimeOver" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -234.0
+offset_top = -155.5
+offset_right = 234.0
+offset_bottom = 155.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/normal_font = ExtResource("1_ahhtf")
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "Seu Tempo Acabou.
+Pressione [color=yellow] R[/color]
+para recomecar.
+"
+horizontal_alignment = 1
+vertical_alignment = 1

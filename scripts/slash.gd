@@ -15,6 +15,6 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if game_manager:
 		if body.is_in_group("enemies"):
-			game_manager.enemy_died()
+			game_manager.enemy_died("slash")
 			body.queue_free()
 	

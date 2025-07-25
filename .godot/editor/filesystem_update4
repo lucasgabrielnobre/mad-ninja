@@ -1,1 +1,6 @@
-res://scenes/levels/level4.tscn
+res://scenes/game_manager.tscn
+res://scenes/levels/Level0.tscn
+res://scripts/Enemy/bullet.gd
+res://scenes/enemies/guns/bullet.tscn
+res://scenes/hud.tscn
+res://scripts/game_manager.gd

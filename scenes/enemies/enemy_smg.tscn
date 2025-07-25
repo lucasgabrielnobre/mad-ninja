@@ -125,7 +125,7 @@ sprite = NodePath("../../AnimatedSprite2D")
 navigation_agent = NodePath("../../NavigationAgent2D")
 enemy = NodePath("../..")
 ray_cast = NodePath("../../RayCast2D")
-move_speed = 60.0
+move_speed = 80.0
 metadata/_custom_type_script = "uid://cem58tqy255a4"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." index="8"]

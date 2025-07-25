@@ -2,14 +2,17 @@ extends Node
 @onready var hud: CanvasLayer = $"../HUD"
 @onready var player: CharacterBody2D = %Player
 @onready var canvas_modulate: CanvasModulate = $"../CanvasModulate"
-var hud_shurikens = 0
+@onready var invicibility_timer: Timer = $InvicibilityTimer
+@export var level_timer: Timer
 var enemies_count = 1
 var current_level = LevelManager.current_level
-
+var player_invicible = false
 var next_level = false
 const FILE_LEVEL = "res://scenes/levels/Level"
 var next_level_path = ""
 func _ready():
+	if level_timer:
+		level_timer.connect("timeout", Callable(self, "_on_level_timer_timeout"))
 	hud.get_node("GameOver").visible = false
 	hud.get_node("NextLevel").visible = false
 	enemies_count = get_tree().get_nodes_in_group("enemies").size()
@@ -19,22 +22,32 @@ func _ready():
 	var next_level_number = current_level + 1
 	next_level_path  = FILE_LEVEL + str(next_level_number) + ".tscn"
 func game_over():
+	if level_timer:
+		level_timer.stop()
 	if next_level != true:
 		hud.get_node("GameOver").visible = true
 		player.queue_free()
 		canvas_modulate.color = "#a6a6a6"
 func _process(_delta):
+	format_time(level_timer)
 	input_Manager()
 	if is_instance_valid(player):
 		hud.get_node("ShurikensCounter").set_text(player.shurikens_count())
 	if enemies_count < 1:
+		if level_timer:
+			level_timer.stop()
 		next_level = true
 		hud.get_node("GameOver").visible = false
+		hud.get_node("TimeOver").visible = false
 		hud.get_node("NextLevel").visible = true
 		canvas_modulate.color = "#a6a6a6"
-func enemy_died():
+	
+func enemy_died(attack):
 	enemies_count -= 1
 	if is_instance_valid(player):
+		if attack == "shuriken":
+			player_invicible = true
+			invicibility_timer.start()
 		player.shurikens += 1
 func change_levels(number):
 	LevelManager.current_level = number
@@ -54,3 +67,23 @@ func input_Manager():
 		change_levels(3)
 	if Input.is_key_pressed(KEY_4):
 		change_levels(4)
+func is_player_invicible():
+	return player_invicible
+func format_time(timer : Timer):
+	if !timer:
+		return
+	if !timer.is_stopped():
+		var time_left = timer.time_left
+		var seconds = int(time_left) % 60
+		var milliseconds = int((time_left - int(time_left)) * 100)
+		var formatted_time = "%02d:%02d" % [seconds, milliseconds]
+		hud.get_node("LevelTimer").text = formatted_time
+func _on_invicibility_timer_timeout() -> void:
+		player_invicible = false
+func _on_level_timer_timeout() -> void:
+	hud.get_node("GameOver").visible = false
+	hud.get_node("NextLevel").visible = false
+	hud.get_node("TimeOver").visible = true
+	canvas_modulate.color = "#a6a6a6"
+	if player:
+		player.queue_free()

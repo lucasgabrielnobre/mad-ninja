@@ -15,7 +15,8 @@ func _physics_process(_delta: float) -> void:
 		sprite.play("idle")
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		game_manager.game_over()
+		if !game_manager.is_player_invicible():
+			game_manager.game_over()
 """
 
 @onready var area_2d: Area2D = $Area2D

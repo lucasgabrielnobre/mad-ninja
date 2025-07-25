@@ -63,7 +63,6 @@ func handle_gun():
 func get_nearby_enemies(origin: CharacterBody2D, radius: float = 200.0) -> Array:
 	var enemies_in_radius = []
 	var all_enemies = get_tree().get_nodes_in_group("enemies")  # Certifique-se de adicionar seus inimigos a esse grupo
-	print(radius)
 	for enemy in all_enemies:
 		if enemy == origin:  # Evita considerar o próprio personagem (caso esteja no grupo)
 			continue

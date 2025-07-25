@@ -6,9 +6,8 @@ var slash : Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 var shurikens = 0
 var max_speed = 1500
+var dash = 1000
 const friction = 1000
-const dash = 10000
-
 var speed = 400
 
 var shuriken_scene = preload("res://scenes/player/shuriken.tscn")
@@ -62,7 +61,7 @@ func slash_physics(delta):
 		if Input.is_action_just_pressed("slash"):
 			slashing()
 			$SlashTimer.start()
-			#velocity += (get_global_mouse_position() - global_position).normalized() * dash * delta * 2
+			velocity += (get_global_mouse_position() - global_position).normalized() * dash * delta * 2
 func shurikens_count():
 	return str(shurikens)
 func update_animation(animation):

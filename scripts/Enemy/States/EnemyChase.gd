@@ -7,7 +7,6 @@ var lost : bool
 @onready var sprite: AnimatedSprite2D = $"../../AnimatedSprite2D"
 
 func Enter():
-	print("entrou")
 	player = get_tree().get_first_node_in_group("Player")
 	chase_timer.start()
 func PhysicsUpdate(delta):

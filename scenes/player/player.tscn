@@ -378,6 +378,7 @@ sprite_frames = SubResource("SpriteFrames_qlg0r")
 animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(3.25, 0.125)
 shape = SubResource("RectangleShape2D_g2els")
 

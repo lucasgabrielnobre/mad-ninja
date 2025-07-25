@@ -3,7 +3,7 @@ extends Node
 @onready var player: CharacterBody2D = %Player
 @onready var canvas_modulate: CanvasModulate = $"../CanvasModulate"
 @onready var invicibility_timer: Timer = $InvicibilityTimer
-@export var level_timer: Timer
+var level_timer: Timer
 var enemies_count = 1
 var current_level = LevelManager.current_level
 var player_invicible = false
@@ -11,6 +11,7 @@ var next_level = false
 const FILE_LEVEL = "res://scenes/levels/Level"
 var next_level_path = ""
 func _ready():
+	level_timer = get_tree().get_first_node_in_group("LevelTimer")
 	if level_timer:
 		level_timer.connect("timeout", Callable(self, "_on_level_timer_timeout"))
 	hud.get_node("GameOver").visible = false
@@ -40,7 +41,7 @@ func _process(_delta):
 		hud.get_node("GameOver").visible = false
 		hud.get_node("TimeOver").visible = false
 		hud.get_node("NextLevel").visible = true
-		canvas_modulate.color = "#a6a6a6"
+		canvas_modulate.color = "#d4d4d4"
 	
 func enemy_died(attack):
 	enemies_count -= 1
@@ -51,14 +52,18 @@ func enemy_died(attack):
 		player.shurikens += 1
 func change_levels(number):
 	LevelManager.current_level = number
+	number = str(number)
 	await get_tree().create_timer(0.1).timeout
-	get_tree().change_scene_to_file(FILE_LEVEL + str(number) + ".tscn")
+	scene_manager.change_scene(get_tree().current_scene, number, "level")
 func input_Manager():
 	if Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()	
 	if Input.is_action_just_pressed("next_level") and next_level:
 		LevelManager.current_level += 1
-		get_tree().change_scene_to_file(next_level_path)
+		var number = str(LevelManager.current_level)
+		scene_manager.change_scene(get_tree().current_scene, number, "level")
+	if Input.is_key_pressed(KEY_0):
+		change_levels(0)
 	if Input.is_key_pressed(KEY_1):
 		change_levels(1)
 	if Input.is_key_pressed(KEY_2):

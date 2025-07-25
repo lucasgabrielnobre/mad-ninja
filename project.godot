@@ -11,18 +11,19 @@ config_version=5
 [application]
 
 config/name="Mad Ninja"
-run/main_scene="uid://bt4gkl2wr7rgf"
+run/main_scene="uid://dr4jeru61wj6y"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://b44evh4vgjh8n"
 
 [autoload]
 
 LevelManager="*res://scripts/level_manager.gd"
+scene_manager="*res://scenes/scene_manager.tscn"
 
 [display]
 
-window/size/viewport_width=960
-window/size/viewport_height=640
+window/size/viewport_width=896
+window/size/viewport_height=504
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://b6380sb33nm5d"
 
@@ -32,6 +33,8 @@ enemies="All enemies"
 Player=""
 GameManager=""
 enemies_area=""
+LevelTimer=""
+Camera=""
 
 [input]
 

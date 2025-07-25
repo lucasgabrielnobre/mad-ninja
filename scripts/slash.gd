@@ -4,8 +4,9 @@ var direction : Vector2
 const SPEED = 1
 var player : Node2D
 var game_manager : Node
-
+var camera : Camera2D
 func _ready():
+	#camera = get_tree().get_first_node_in_group("Camera")
 	game_manager = get_tree().get_first_node_in_group("GameManager")
 	player = get_tree().get_first_node_in_group("Player")
 func _physics_process(_delta: float) -> void:

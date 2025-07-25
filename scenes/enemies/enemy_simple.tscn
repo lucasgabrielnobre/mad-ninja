@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d4lrujwynh212"]
+[gd_scene load_steps=5 format=3 uid="uid://d4lrujwynh212"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_klfkd"]
 animations = [{
@@ -14,6 +14,10 @@ radius = 24.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p1mj"]
 size = Vector2(56, 52)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_klfkd"]
+cull_mode = 1
+polygon = PackedVector2Array(-20, -22, -20, -18, -24, -18, -24, 22, -20, 22, -19.9254, 26, 4, 26, 4, 22, 8, 22, 8, 26, 28, 26, 28, 22, 32, 22, 32, -18, 28, -18, 28, -22, 24, -22, 24, -26, -16, -26, -16, -22)
+
 [node name="EnemySimple" type="CharacterBody2D" groups=["enemies"]]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -27,3 +31,7 @@ shape = SubResource("CircleShape2D_klfkd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_7p1mj")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+position = Vector2(-4, 0)
+occluder = SubResource("OccluderPolygon2D_klfkd")

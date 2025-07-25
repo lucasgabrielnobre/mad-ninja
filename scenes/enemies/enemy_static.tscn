@@ -88,7 +88,11 @@ script = ExtResource("2_lg8gs")
 sprite_frames = SubResource("SpriteFrames_l7gun")
 
 [node name="CollisionShape2D" parent="." index="1"]
+visible = false
 shape = SubResource("CircleShape2D_lpbuc")
+
+[node name="Area2D" parent="." index="2"]
+visible = false
 
 [node name="StateMachine" type="Node" parent="." index="3" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_aj63o")

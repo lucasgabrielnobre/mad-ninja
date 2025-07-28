@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://dmq18ryo2e67h"]
+[gd_scene load_steps=15 format=4 uid="uid://dmq18ryo2e67h"]
 
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_2rkt7"]
 [ext_resource type="Script" uid="uid://g1oqg18hxh02" path="res://scripts/level_language.gd" id="1_sdnvp"]
@@ -11,14 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="8_000ip"]
 [ext_resource type="PackedScene" uid="uid://conw8fta6vnkq" path="res://scenes/point_light_2d.tscn" id="9_rx4po"]
 [ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="10_e257y"]
-[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="11_7xq2f"]
 [ext_resource type="Texture2D" uid="uid://pvjs0rsv3y4i" path="res://assets/Menu/background-blue.png" id="12_2rkt7"]
+[ext_resource type="PackedScene" uid="uid://jt5k51w2as4q" path="res://scenes/background.tscn" id="13_53v2u"]
 [ext_resource type="PackedScene" uid="uid://dks7r1dmddifq" path="res://scenes/hud_en.tscn" id="14_53v2u"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngf84"]
-shader = ExtResource("11_7xq2f")
-shader_parameter/speed_x = 0.1
-shader_parameter/speed_y = 0.1
 
 [node name="level6" type="Node2D"]
 script = ExtResource("1_sdnvp")
@@ -62,19 +57,18 @@ metadata/_edit_lock_ = true
 [node name="LevelTimer" parent="." instance=ExtResource("10_e257y")]
 wait_time = 5.0
 
-[node name="Background" type="TextureRect" parent="."]
-z_index = -10
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ngf84")
-offset_left = -2136.0
-offset_top = -1328.0
-offset_right = 2192.0
-offset_bottom = 1192.0
-mouse_filter = 2
-texture = ExtResource("12_2rkt7")
-stretch_mode = 1
-metadata/_edit_lock_ = true
-
 [node name="HUD_pt" parent="." instance=ExtResource("5_uc8rk")]
 
 [node name="HUD_en" parent="." instance=ExtResource("14_53v2u")]
+
+[node name="Background2" parent="." instance=ExtResource("13_53v2u")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1552.0
+offset_top = -1592.0
+offset_right = 1968.0
+offset_bottom = 1048.0
+grow_horizontal = 1
+grow_vertical = 1
+texture = ExtResource("12_2rkt7")

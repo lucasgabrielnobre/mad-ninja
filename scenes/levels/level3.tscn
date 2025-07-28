@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dyo0cgri32gr7"]
+[gd_scene load_steps=28 format=4 uid="uid://dyo0cgri32gr7"]
 
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_8w0pe"]
 [ext_resource type="Script" uid="uid://g1oqg18hxh02" path="res://scripts/level_language.gd" id="1_ahaer"]
@@ -15,9 +15,9 @@
 [ext_resource type="Script" uid="uid://cem58tqy255a4" path="res://scripts/Enemy/States/Gun/EnemySMGChase.gd" id="12_ahaer"]
 [ext_resource type="PackedScene" uid="uid://conw8fta6vnkq" path="res://scenes/point_light_2d.tscn" id="13_ah4rv"]
 [ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="14_522sc"]
-[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="15_t14x3"]
 [ext_resource type="PackedScene" uid="uid://cdf1hqw1s6my" path="res://scenes/camera_2d.tscn" id="16_ahaer"]
 [ext_resource type="Texture2D" uid="uid://pvjs0rsv3y4i" path="res://assets/Menu/background-blue.png" id="16_t14x3"]
+[ext_resource type="PackedScene" uid="uid://jt5k51w2as4q" path="res://scenes/background.tscn" id="17_wt4k6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4q2at"]
 atlas = ExtResource("8_ah4rv")
@@ -96,11 +96,6 @@ _data = {
 &"RESET": SubResource("Animation_3slpu"),
 &"walk": SubResource("Animation_u4q2g")
 }
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wt4k6"]
-shader = ExtResource("15_t14x3")
-shader_parameter/speed_x = 0.1
-shader_parameter/speed_y = 0.1
 
 [node name="level3" type="Node2D"]
 script = ExtResource("1_ahaer")
@@ -209,14 +204,14 @@ libraries = {
 [node name="LevelTimer" parent="." instance=ExtResource("14_522sc")]
 wait_time = 5.0
 
-[node name="Background" type="TextureRect" parent="."]
-z_index = -10
-texture_repeat = 2
-material = SubResource("ShaderMaterial_wt4k6")
-offset_left = -2240.0
-offset_top = -1152.0
-offset_right = 2088.0
-offset_bottom = 1368.0
-mouse_filter = 2
+[node name="Background2" parent="." instance=ExtResource("17_wt4k6")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1912.0
+offset_top = -1176.0
+offset_right = 1608.0
+offset_bottom = 1464.0
+grow_horizontal = 1
+grow_vertical = 1
 texture = ExtResource("16_t14x3")
-stretch_mode = 1

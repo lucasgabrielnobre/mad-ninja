@@ -1,15 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvf7vakncxceu"]
+[gd_scene load_steps=16 format=3 uid="uid://bvf7vakncxceu"]
 
 [ext_resource type="Script" uid="uid://cpsw35v1x6gtt" path="res://scripts/language.gd" id="1_byx4f"]
-[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="2_w2rlm"]
-[ext_resource type="Texture2D" uid="uid://cs581otwsck38" path="res://assets/Menu/background-green.png" id="3_sewyw"]
+[ext_resource type="PackedScene" uid="uid://jt5k51w2as4q" path="res://scenes/background.tscn" id="2_byx4f"]
 [ext_resource type="Texture2D" uid="uid://drkbodyc7fy85" path="res://assets/Menu/brazillian-flag.png" id="4_w2rlm"]
 [ext_resource type="Texture2D" uid="uid://r67j0x5ia4" path="res://assets/Menu/english-flag.png" id="5_sewyw"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtw2f"]
-shader = ExtResource("2_w2rlm")
-shader_parameter/speed_x = 0.1
-shader_parameter/speed_y = 0.1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
@@ -46,19 +40,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_byx4f")
 
-[node name="Background" type="TextureRect" parent="."]
-z_index = -10
-texture_repeat = 2
-material = SubResource("ShaderMaterial_rtw2f")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("3_sewyw")
-stretch_mode = 1
+[node name="Background" parent="." instance=ExtResource("2_byx4f")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 896.0
+offset_bottom = 504.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [node name="pt" type="Button" parent="." groups=["pt"]]
 layout_mode = 1

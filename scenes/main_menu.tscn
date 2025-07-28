@@ -1,17 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://dr4jeru61wj6y"]
+[gd_scene load_steps=18 format=3 uid="uid://dr4jeru61wj6y"]
 
 [ext_resource type="Script" uid="uid://cen7g5i41rok3" path="res://scripts/main_menu.gd" id="1_bqqt6"]
 [ext_resource type="Texture2D" uid="uid://erpgqu1t23li" path="res://assets/Menu/mad-ninja.png" id="1_l6cm7"]
-[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="2_8ln24"]
 [ext_resource type="Texture2D" uid="uid://bvepkchlko7lv" path="res://assets/Menu/play-button.png" id="2_ekxnf"]
-[ext_resource type="Texture2D" uid="uid://cs581otwsck38" path="res://assets/Menu/background-green.png" id="2_wu84c"]
+[ext_resource type="PackedScene" uid="uid://jt5k51w2as4q" path="res://scenes/background.tscn" id="6_oa1go"]
 [ext_resource type="Texture2D" uid="uid://bvi2p4jwkblu0" path="res://assets/Menu/play-button_en.png" id="6_rtw2f"]
 [ext_resource type="Texture2D" uid="uid://rxe12go35h5w" path="res://assets/Menu/globe.png" id="7_oa1go"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtw2f"]
-shader = ExtResource("2_8ln24")
-shader_parameter/speed_x = 0.1
-shader_parameter/speed_y = 0.1
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
 
@@ -47,20 +41,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bqqt6")
-
-[node name="Background" type="TextureRect" parent="."]
-z_index = -10
-texture_repeat = 2
-material = SubResource("ShaderMaterial_rtw2f")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("2_wu84c")
-stretch_mode = 1
 
 [node name="MadNinja" type="TextureRect" parent="."]
 layout_mode = 1
@@ -137,10 +117,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 192.0
-offset_top = -160.0
-offset_right = 284.0
-offset_bottom = -68.0
+offset_left = -408.0
+offset_top = -464.0
+offset_right = -308.0
+offset_bottom = -364.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
@@ -155,6 +135,15 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_ekxnf")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5dd4i")
 theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 icon = ExtResource("7_oa1go")
+
+[node name="Background" parent="." instance=ExtResource("6_oa1go")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 896.0
+offset_bottom = 504.0
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="button_up" from="pt" to="." method="_on_button_button_up"]
 [connection signal="button_up" from="en" to="." method="_on_button_button_up"]

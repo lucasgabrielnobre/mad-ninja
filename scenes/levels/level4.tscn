@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://bsy5ynwal5l3b"]
+[gd_scene load_steps=15 format=4 uid="uid://bsy5ynwal5l3b"]
 
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_8w0pe"]
 [ext_resource type="Script" uid="uid://g1oqg18hxh02" path="res://scripts/level_language.gd" id="1_f62st"]
@@ -11,14 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://klr3gel5g1xy" path="res://scenes/enemies/enemy_smg.tscn" id="7_f7rt6"]
 [ext_resource type="PackedScene" uid="uid://conw8fta6vnkq" path="res://scenes/point_light_2d.tscn" id="9_4vryo"]
 [ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="10_g1ckg"]
-[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="11_xx6b8"]
 [ext_resource type="Texture2D" uid="uid://cj5rm2jsy2maj" path="res://assets/Menu/background-red.png" id="12_f62st"]
 [ext_resource type="PackedScene" uid="uid://cdf1hqw1s6my" path="res://scenes/camera_2d.tscn" id="13_5sfmg"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w24lh"]
-shader = ExtResource("11_xx6b8")
-shader_parameter/speed_x = 0.1
-shader_parameter/speed_y = 0.1
+[ext_resource type="PackedScene" uid="uid://jt5k51w2as4q" path="res://scenes/background.tscn" id="13_w24lh"]
 
 [node name="level4" type="Node2D"]
 script = ExtResource("1_f62st")
@@ -62,14 +57,14 @@ position = Vector2(-125, -208)
 [node name="LevelTimer" parent="." instance=ExtResource("10_g1ckg")]
 wait_time = 5.0
 
-[node name="Background" type="TextureRect" parent="."]
-z_index = -10
-texture_repeat = 2
-material = SubResource("ShaderMaterial_w24lh")
-offset_left = -2240.0
-offset_top = -1152.0
-offset_right = 2088.0
-offset_bottom = 1368.0
-mouse_filter = 2
+[node name="Background2" parent="." instance=ExtResource("13_w24lh")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -1896.0
+offset_top = -1208.0
+offset_right = 1944.0
+offset_bottom = 1040.0
+grow_horizontal = 1
+grow_vertical = 1
 texture = ExtResource("12_f62st")
-stretch_mode = 1

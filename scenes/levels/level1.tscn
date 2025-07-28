@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://y1obx04d5t1v"]
+[gd_scene load_steps=26 format=4 uid="uid://y1obx04d5t1v"]
 
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_ps2vj"]
 [ext_resource type="Script" uid="uid://g1oqg18hxh02" path="res://scripts/level_language.gd" id="1_sbmf2"]
@@ -15,13 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://diwggmj546y1g" path="res://scenes/enemies/enemy_static.tscn" id="11_vhxpm"]
 [ext_resource type="PackedScene" uid="uid://conw8fta6vnkq" path="res://scenes/point_light_2d.tscn" id="12_arkx4"]
 [ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="13_jqv5m"]
-[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="14_noix2"]
-[ext_resource type="Texture2D" uid="uid://cs581otwsck38" path="res://assets/Menu/background-green.png" id="15_025c5"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_njy47"]
-shader = ExtResource("14_noix2")
-shader_parameter/speed_x = 0.1
-shader_parameter/speed_y = 0.1
+[ext_resource type="PackedScene" uid="uid://jt5k51w2as4q" path="res://scenes/background.tscn" id="16_sbmf2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6se2n"]
 atlas = ExtResource("6_gvm5i")
@@ -125,18 +119,6 @@ position = Vector2(192, 136)
 color = Color(0.913725, 0.913725, 0.913725, 1)
 
 [node name="LevelTimer" parent="." instance=ExtResource("13_jqv5m")]
-
-[node name="Background" type="TextureRect" parent="."]
-z_index = -10
-texture_repeat = 2
-material = SubResource("ShaderMaterial_njy47")
-offset_left = -2136.0
-offset_top = -1160.0
-offset_right = 2192.0
-offset_bottom = 1360.0
-mouse_filter = 2
-texture = ExtResource("15_025c5")
-stretch_mode = 1
 
 [node name="pt" type="Node2D" parent="." groups=["pt"]]
 visible = false
@@ -247,3 +229,14 @@ theme_override_font_sizes/font_size = 20
 text = "win      eliminating enemies.
 Use       with Left mouse button
 to kill and teleport"
+
+[node name="Background2" parent="." instance=ExtResource("16_sbmf2")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -800.0
+offset_top = -496.0
+offset_right = 816.0
+offset_bottom = 544.0
+grow_horizontal = 1
+grow_vertical = 1

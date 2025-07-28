@@ -1,0 +1,113 @@
+[gd_scene load_steps=18 format=3 uid="uid://bvf7vakncxceu"]
+
+[ext_resource type="Script" uid="uid://cpsw35v1x6gtt" path="res://scripts/language.gd" id="1_byx4f"]
+[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="2_w2rlm"]
+[ext_resource type="Texture2D" uid="uid://cs581otwsck38" path="res://assets/Menu/background-green.png" id="3_sewyw"]
+[ext_resource type="Texture2D" uid="uid://drkbodyc7fy85" path="res://assets/Menu/brazillian-flag.png" id="4_w2rlm"]
+[ext_resource type="Texture2D" uid="uid://r67j0x5ia4" path="res://assets/Menu/english-flag.png" id="5_sewyw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rtw2f"]
+shader = ExtResource("2_w2rlm")
+shader_parameter/speed_x = 0.1
+shader_parameter/speed_y = 0.1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bqqt6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wu84c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8ln24"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rtw2f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oa1go"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbmy8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+content_margin_bottom = 12.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+skew = Vector2(0, 100)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jk1qb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekxnf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dd4i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bqqt6"]
+bg_color = Color(0.52, 0.52, 0.52, 0)
+
+[node name="Language" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_byx4f")
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -10
+texture_repeat = 2
+material = SubResource("ShaderMaterial_rtw2f")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_sewyw")
+stretch_mode = 1
+
+[node name="pt" type="Button" parent="." groups=["pt"]]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -392.0
+offset_top = -114.0
+offset_right = -56.0
+offset_bottom = 114.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wu84c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8ln24")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rtw2f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oa1go")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tbmy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jk1qb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ekxnf")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5dd4i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+icon = ExtResource("4_w2rlm")
+
+[node name="en" type="Button" parent="." groups=["en"]]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -114.0
+offset_right = 392.0
+offset_bottom = 114.0
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bqqt6")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wu84c")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_8ln24")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rtw2f")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_oa1go")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_tbmy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ekxnf")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_jk1qb")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ekxnf")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_5dd4i")
+theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
+icon = ExtResource("5_sewyw")
+
+[connection signal="button_up" from="pt" to="." method="_on_pt_button_up"]
+[connection signal="button_up" from="en" to="." method="_on_en_button_up"]

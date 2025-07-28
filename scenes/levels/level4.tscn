@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://bsy5ynwal5l3b"]
+[gd_scene load_steps=16 format=4 uid="uid://bsy5ynwal5l3b"]
 
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_8w0pe"]
+[ext_resource type="Script" uid="uid://g1oqg18hxh02" path="res://scripts/level_language.gd" id="1_f62st"]
 [ext_resource type="TileSet" uid="uid://0nff2m8x2iyp" path="res://assets/TileSet.tres" id="3_4vryo"]
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="3_7eb4w"]
-[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_72x3h"]
+[ext_resource type="PackedScene" uid="uid://dks7r1dmddifq" path="res://scenes/hud_en.tscn" id="4_w24lh"]
+[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud_pt.tscn" id="5_72x3h"]
 [ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemies/enemy_gun.tscn" id="6_wb0vq"]
 [ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="7_ah4rv"]
 [ext_resource type="PackedScene" uid="uid://klr3gel5g1xy" path="res://scenes/enemies/enemy_smg.tscn" id="7_f7rt6"]
@@ -19,8 +21,13 @@ shader_parameter/speed_x = 0.1
 shader_parameter/speed_y = 0.1
 
 [node name="level4" type="Node2D"]
+script = ExtResource("1_f62st")
 
 [node name="GameManager" parent="." instance=ExtResource("1_8w0pe")]
+
+[node name="HUD_pt" parent="." instance=ExtResource("5_72x3h")]
+
+[node name="HUD_en" parent="." instance=ExtResource("4_w24lh")]
 
 [node name="Camera2D" parent="." instance=ExtResource("13_5sfmg")]
 
@@ -33,8 +40,6 @@ tile_set = ExtResource("3_4vryo")
 unique_name_in_owner = true
 z_index = 100
 position = Vector2(-128, -496)
-
-[node name="HUD" parent="." instance=ExtResource("5_72x3h")]
 
 [node name="Enemies" type="Node" parent="."]
 

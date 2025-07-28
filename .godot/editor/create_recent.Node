@@ -1,3 +1,7 @@
+Button
+Node2D
+Node
+TextEdit
 CollisionShape2D
 Area2D
 CPUParticles2D
@@ -5,11 +9,6 @@ AnimationPlayer
 ColorRect
 CanvasLayer
 TextureRect
-Button
 Panel
 Sprite2D
 LightOccluder2D
-Node2D
-Polygon2D
-PointLight2D
-DirectionalLight2D

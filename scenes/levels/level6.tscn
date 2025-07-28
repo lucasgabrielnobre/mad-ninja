@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://dmq18ryo2e67h"]
+[gd_scene load_steps=16 format=4 uid="uid://dmq18ryo2e67h"]
 
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_2rkt7"]
+[ext_resource type="Script" uid="uid://g1oqg18hxh02" path="res://scripts/level_language.gd" id="1_sdnvp"]
 [ext_resource type="PackedScene" uid="uid://cdf1hqw1s6my" path="res://scenes/camera_2d.tscn" id="2_sdnvp"]
 [ext_resource type="TileSet" uid="uid://0nff2m8x2iyp" path="res://assets/TileSet.tres" id="3_53v2u"]
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="4_3mgnq"]
-[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_uc8rk"]
+[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud_pt.tscn" id="5_uc8rk"]
 [ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemies/enemy_gun.tscn" id="6_hseji"]
 [ext_resource type="PackedScene" uid="uid://klr3gel5g1xy" path="res://scenes/enemies/enemy_smg.tscn" id="7_km634"]
 [ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="8_000ip"]
@@ -12,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="10_e257y"]
 [ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="11_7xq2f"]
 [ext_resource type="Texture2D" uid="uid://pvjs0rsv3y4i" path="res://assets/Menu/background-blue.png" id="12_2rkt7"]
+[ext_resource type="PackedScene" uid="uid://dks7r1dmddifq" path="res://scenes/hud_en.tscn" id="14_53v2u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ngf84"]
 shader = ExtResource("11_7xq2f")
@@ -19,6 +21,7 @@ shader_parameter/speed_x = 0.1
 shader_parameter/speed_y = 0.1
 
 [node name="level6" type="Node2D"]
+script = ExtResource("1_sdnvp")
 
 [node name="GameManager" parent="." instance=ExtResource("1_2rkt7")]
 
@@ -33,8 +36,6 @@ tile_set = ExtResource("3_53v2u")
 unique_name_in_owner = true
 z_index = 100
 position = Vector2(-120, -136)
-
-[node name="HUD" parent="." instance=ExtResource("5_uc8rk")]
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -73,3 +74,7 @@ mouse_filter = 2
 texture = ExtResource("12_2rkt7")
 stretch_mode = 1
 metadata/_edit_lock_ = true
+
+[node name="HUD_pt" parent="." instance=ExtResource("5_uc8rk")]
+
+[node name="HUD_en" parent="." instance=ExtResource("14_53v2u")]

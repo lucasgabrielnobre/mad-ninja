@@ -36,4 +36,4 @@ vec4 grid_result = black_dot_grid
 
 COLOR = grid_result;
 
-} 
+}

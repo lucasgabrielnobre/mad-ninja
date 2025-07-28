@@ -1,3 +1,5 @@
+res://scenes
+res://scripts
 res://assets
 res://scenes/levels
 C:/Users/Latitude 5490/Desktop/ninja/hmtl/new
@@ -9,8 +11,6 @@ C:/Users/Latitude 5490/Documents/mad-ninja
 C:/m
 res://assets/Menu
 C:/Users/Latitude 5490/Desktop/lucas
-res://scenes
-res://scripts
 res://shaders
 res://scenes/enemies
 res://scripts/Enemy/States/Gun

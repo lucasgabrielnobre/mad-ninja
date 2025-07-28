@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Mad Ninja"
-run/main_scene="uid://dr4jeru61wj6y"
+run/main_scene="uid://bvf7vakncxceu"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="uid://b44evh4vgjh8n"
 
@@ -35,6 +35,9 @@ GameManager=""
 enemies_area=""
 LevelTimer=""
 Camera=""
+pt=""
+en=""
+HUD=""
 
 [input]
 

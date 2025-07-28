@@ -1,5 +1,5 @@
 extends Node
-@onready var hud: CanvasLayer = $"../HUD"
+var hud: CanvasLayer
 @onready var player: CharacterBody2D = %Player
 @onready var canvas_modulate: CanvasModulate = $"../CanvasModulate"
 @onready var invicibility_timer: Timer = $InvicibilityTimer
@@ -11,19 +11,17 @@ var current_level = LevelManager.current_level
 var player_invicible = false
 var next_level = false
 const FILE_LEVEL = "res://scenes/levels/Level"
-var next_level_path = ""
-func _ready():
+func _ready(): 
+	var huds = get_tree().get_nodes_in_group("HUD")
+	for h : CanvasLayer in huds:
+		if h.is_in_group(scene_manager.language):
+			hud = h
 	level_timer = get_tree().get_first_node_in_group("LevelTimer")
 	if level_timer:
 		level_timer.connect("timeout", Callable(self, "_on_level_timer_timeout"))
 	hud.get_node("GameOver").visible = false
 	hud.get_node("NextLevel").visible = false
 	enemies_count = get_tree().get_nodes_in_group("enemies").size()
-	# codigo pro next level
-	var current_scene_file = get_tree().current_scene.scene_file_path
-	current_level = current_scene_file.to_int()
-	var next_level_number = current_level + 1
-	next_level_path  = FILE_LEVEL + str(next_level_number) + ".tscn"
 func game_over():
 	if level_timer:
 		level_timer.stop()
@@ -100,7 +98,7 @@ func format_time(timer : Timer):
 		var formatted_time = "%02d:%02d" % [seconds, milliseconds]
 		hud.get_node("LevelTimer").text = formatted_time
 func _on_invicibility_timer_timeout() -> void:
-		player_invicible = false
+	player_invicible = false
 func _on_level_timer_timeout() -> void:
 	hud.get_node("GameOver").visible = false
 	hud.get_node("NextLevel").visible = false

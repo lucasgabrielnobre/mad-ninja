@@ -4,7 +4,7 @@ var scenes_path = "res://scenes/"
 var level_path = scenes_path + "levels/level"
 @onready var animation: AnimationPlayer = $TransitionAnimation
 var last_scene_name : String
-
+var language : String
 func change_scene(from, to_scene_name, type):
 	last_scene_name = from.name
 	var full_path = scenes_path  + to_scene_name + ".tscn"
@@ -20,3 +20,9 @@ func _process(delta):
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		else:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+
+func turn_language(language):
+	if language:
+		var texts = get_tree().get_nodes_in_group(language)
+		for text in texts:
+			text.visible = true

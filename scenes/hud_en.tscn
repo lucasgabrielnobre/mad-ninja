@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtau1ouinhtnr"]
+[gd_scene load_steps=3 format=3 uid="uid://dks7r1dmddifq"]
 
-[ext_resource type="FontFile" uid="uid://dmwnkxtfdm35q" path="res://assets/font/pixel.ttf" id="1_ahhtf"]
-[ext_resource type="Texture2D" uid="uid://b44evh4vgjh8n" path="res://assets/shuriken_static.png" id="2_oo0fn"]
+[ext_resource type="FontFile" uid="uid://dmwnkxtfdm35q" path="res://assets/font/pixel.ttf" id="1_0wwro"]
+[ext_resource type="Texture2D" uid="uid://b44evh4vgjh8n" path="res://assets/shuriken_static.png" id="2_f51cf"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD_en" type="CanvasLayer" groups=["HUD", "en"]]
 
 [node name="GameOver" type="RichTextLabel" parent="."]
 visible = false
@@ -19,26 +19,26 @@ offset_bottom = 110.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_fonts/normal_font = ExtResource("1_ahhtf")
+theme_override_fonts/normal_font = ExtResource("1_0wwro")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Voce Morreu.
-Pressione [color=yellow] R[/color]
-para recomecar.
+text = "You died.
+Press[color=yellow] R[/color]
+to restart
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(32, 32)
-texture = ExtResource("2_oo0fn")
+texture = ExtResource("2_f51cf")
 
 [node name="ShurikensCounter" type="Label" parent="."]
 offset_left = 64.0
 offset_top = 8.0
 offset_right = 104.0
 offset_bottom = 80.0
-theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_fonts/font = ExtResource("1_0wwro")
 theme_override_font_sizes/font_size = 20
 text = "0"
 
@@ -49,22 +49,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -253.0
+offset_left = -222.5
 offset_top = -74.5
-offset_right = 253.0
+offset_right = 222.5
 offset_bottom = 74.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_fonts/normal_font = ExtResource("1_ahhtf")
+theme_override_fonts/normal_font = ExtResource("1_0wwro")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Pressione [color=yellow]espaco[/color] para continuar"
+text = "press [color=yellow]space[/color] to continue"
 autowrap_mode = 1
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LevelTimer" type="Label" parent="."]
+visible = false
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -74,7 +75,7 @@ offset_right = 40.0
 offset_bottom = 84.0
 grow_horizontal = 2
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_ahhtf")
+theme_override_fonts/font = ExtResource("1_0wwro")
 theme_override_font_sizes/font_size = 20
 text = "
 "
@@ -93,12 +94,12 @@ offset_bottom = 155.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-theme_override_fonts/normal_font = ExtResource("1_ahhtf")
+theme_override_fonts/normal_font = ExtResource("1_0wwro")
 theme_override_font_sizes/normal_font_size = 40
 bbcode_enabled = true
-text = "Seu Tempo Acabou.
-Pressione [color=yellow] R[/color]
-para recomecar.
+text = "Your time is over
+press[color=yellow] R[/color]
+to restart
 "
 horizontal_alignment = 1
 vertical_alignment = 1

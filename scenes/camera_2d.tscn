@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="1_qnfst"]
 
 [node name="Camera2D" type="Camera2D" groups=["Camera"]]
+zoom = Vector2(0.8, 0.8)
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 script = ExtResource("1_qnfst")

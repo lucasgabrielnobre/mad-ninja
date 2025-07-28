@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="7_1se4v"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="8_ysxgg"]
 
-[node name="Level10" type="Node2D"]
+[node name="level9" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_h1dae")]
 unique_name_in_owner = true

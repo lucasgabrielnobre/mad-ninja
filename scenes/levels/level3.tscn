@@ -1,7 +1,6 @@
-[gd_scene load_steps=24 format=4 uid="uid://dyo0cgri32gr7"]
+[gd_scene load_steps=27 format=4 uid="uid://dyo0cgri32gr7"]
 
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_8w0pe"]
-[ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="2_8w0pe"]
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="3_7eb4w"]
 [ext_resource type="TileSet" uid="uid://0nff2m8x2iyp" path="res://assets/TileSet.tres" id="3_ah4rv"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_72x3h"]
@@ -14,6 +13,9 @@
 [ext_resource type="Script" uid="uid://cem58tqy255a4" path="res://scripts/Enemy/States/Gun/EnemySMGChase.gd" id="12_ahaer"]
 [ext_resource type="PackedScene" uid="uid://conw8fta6vnkq" path="res://scenes/point_light_2d.tscn" id="13_ah4rv"]
 [ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="14_522sc"]
+[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="15_t14x3"]
+[ext_resource type="PackedScene" uid="uid://cdf1hqw1s6my" path="res://scenes/camera_2d.tscn" id="16_ahaer"]
+[ext_resource type="Texture2D" uid="uid://pvjs0rsv3y4i" path="res://assets/Menu/background-blue.png" id="16_t14x3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4q2at"]
 atlas = ExtResource("8_ah4rv")
@@ -93,15 +95,16 @@ _data = {
 &"walk": SubResource("Animation_u4q2g")
 }
 
-[node name="Level3" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wt4k6"]
+shader = ExtResource("15_t14x3")
+shader_parameter/speed_x = 0.1
+shader_parameter/speed_y = 0.1
+
+[node name="level3" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_8w0pe")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-146, 278)
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-script = ExtResource("2_8w0pe")
+[node name="Camera2D" parent="." instance=ExtResource("16_ahaer")]
 
 [node name="TileSet" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -200,3 +203,15 @@ libraries = {
 
 [node name="LevelTimer" parent="." instance=ExtResource("14_522sc")]
 wait_time = 5.0
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -10
+texture_repeat = 2
+material = SubResource("ShaderMaterial_wt4k6")
+offset_left = -2240.0
+offset_top = -1152.0
+offset_right = 2088.0
+offset_bottom = 1368.0
+mouse_filter = 2
+texture = ExtResource("16_t14x3")
+stretch_mode = 1

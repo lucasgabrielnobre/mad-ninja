@@ -1,0 +1,75 @@
+[gd_scene load_steps=14 format=4 uid="uid://cei5oooe1k20n"]
+
+[ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_2rkt7"]
+[ext_resource type="PackedScene" uid="uid://cdf1hqw1s6my" path="res://scenes/camera_2d.tscn" id="2_sdnvp"]
+[ext_resource type="TileSet" uid="uid://0nff2m8x2iyp" path="res://assets/TileSet.tres" id="3_53v2u"]
+[ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="4_3mgnq"]
+[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_uc8rk"]
+[ext_resource type="PackedScene" uid="uid://cx6asvwub6xp5" path="res://scenes/enemies/enemy_gun.tscn" id="6_hseji"]
+[ext_resource type="PackedScene" uid="uid://klr3gel5g1xy" path="res://scenes/enemies/enemy_smg.tscn" id="7_km634"]
+[ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="8_000ip"]
+[ext_resource type="PackedScene" uid="uid://conw8fta6vnkq" path="res://scenes/point_light_2d.tscn" id="9_rx4po"]
+[ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="10_e257y"]
+[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="11_7xq2f"]
+[ext_resource type="Texture2D" uid="uid://pvjs0rsv3y4i" path="res://assets/Menu/background-blue.png" id="12_2rkt7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngf84"]
+shader = ExtResource("11_7xq2f")
+shader_parameter/speed_x = 0.1
+shader_parameter/speed_y = 0.1
+
+[node name="level6" type="Node2D"]
+
+[node name="GameManager" parent="." instance=ExtResource("1_2rkt7")]
+
+[node name="Camera2D" parent="." instance=ExtResource("2_sdnvp")]
+
+[node name="TileSet" type="TileMapLayer" parent="."]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD9//j/AAABAAEAAAD+//f/AAABAAEAAAD+//j/AAABAAEAAAD///f/AAABAAEAAAD///j/AAABAAEAAAD9//n/AAABAAEAAAD9//r/AAABAAEAAAD9//v/AAABAAEAAAD9//z/AAABAAEAAAD9//3/AAABAAEAAAD+//n/AAABAAEAAAD+//r/AAABAAEAAAD+//v/AAABAAEAAAD+//z/AAABAAEAAAD+//3/AAABAAEAAAD+//7/AAABAAEAAAD///n/AAABAAEAAAD///r/AAABAAEAAAD///v/AAABAAEAAAD///z/AAABAAEAAAD///3/AAABAAEAAAD///7/AAABAAEAAAAAAPf/AAABAAEAAAAAAPj/AAABAAEAAAAAAPn/AAABAAEAAAAAAPr/AAABAAEAAAAAAPv/AAABAAEAAAAAAPz/AAABAAEAAAAAAP3/AAABAAEAAAAAAP7/AAABAAEAAAABAPf/AAABAAEAAAABAPj/AAABAAEAAAABAPn/AAABAAEAAAABAPr/AAABAAEAAAABAPv/AAABAAEAAAABAPz/AAABAAEAAAABAP3/AAABAAEAAAABAP7/AAABAAEAAAACAPf/AAABAAEAAAACAPj/AAABAAEAAAACAPn/AAABAAEAAAACAPr/AAABAAEAAAACAPv/AAABAAEAAAACAPz/AAABAAEAAAACAP3/AAABAAEAAAACAP7/AAABAAEAAAADAPf/AAABAAEAAAADAPj/AAABAAEAAAADAPn/AAABAAEAAAADAPr/AAABAAEAAAADAPv/AAABAAEAAAADAPz/AAABAAEAAAADAP3/AAABAAEAAAADAP7/AAABAAEAAAAEAPf/AAABAAEAAAAEAPj/AAABAAEAAAAEAPn/AAABAAEAAAAEAPr/AAABAAEAAAAEAPv/AAABAAEAAAAEAPz/AAABAAEAAAAEAP3/AAABAAEAAAAEAP7/AAABAAEAAAAFAPf/AAABAAEAAAAFAPj/AAABAAEAAAAFAPz/AAABAAEAAAAFAP3/AAABAAEAAAAFAP7/AAABAAEAAAAGAPf/AAABAAEAAAAGAPj/AAABAAEAAAAGAPn/AAABAAEAAAAGAPr/AAABAAEAAAAGAPv/AAABAAEAAAAGAPz/AAABAAEAAAAGAP3/AAABAAEAAAAGAP7/AAABAAEAAAAHAPf/AAABAAEAAAAHAPj/AAABAAEAAAAHAPn/AAABAAEAAAAHAPr/AAABAAEAAAAHAPv/AAABAAEAAAAHAPz/AAABAAEAAAAHAP3/AAABAAEAAAAHAP7/AAABAAEAAAAIAPj/AAABAAEAAAAIAPn/AAABAAEAAAAIAPr/AAABAAEAAAAIAPv/AAABAAEAAAAIAPz/AAABAAEAAAAFAPv/AAABAAEAAAAFAPr/AAABAAEAAAAFAPn/AAABAAEAAAABAO//AAABAAEAAAABAPD/AAABAAEAAAABAPH/AAABAAEAAAABAPL/AAABAAEAAAABAPP/AAABAAEAAAABAPT/AAABAAEAAAABAPX/AAABAAEAAAABAPb/AAABAAEAAAACAO//AAABAAEAAAACAPD/AAABAAEAAAACAPH/AAABAAEAAAACAPL/AAABAAEAAAACAPP/AAABAAEAAAACAPT/AAABAAEAAAACAPX/AAABAAEAAAACAPb/AAABAAEAAAADAO//AAABAAEAAAADAPD/AAABAAEAAAADAPH/AAABAAEAAAADAPL/AAABAAEAAAADAPP/AAABAAEAAAADAPT/AAABAAEAAAADAPX/AAABAAEAAAADAPb/AAABAAEAAAAEAO//AAABAAEAAAAEAPD/AAABAAEAAAAEAPH/AAABAAEAAAAEAPL/AAABAAEAAAAEAPT/AAABAAEAAAAEAPX/AAABAAEAAAAEAPb/AAABAAEAAAAIAP3/AAABAAEAAAD///b/AAABAAEAAAAAAPb/AAABAAEAAAAGAPb/AAABAAEAAAAFAPb/AAABAAEAAAAEAPP/AAABAAEAAAAAAPX/AAABAAEAAAAFAPX/AAABAAEAAAD+////AAABAAIAAAD/////AAABAAIAAAAAAP//AAABAAIAAAABAP//AAABAAIAAAACAP//AAABAAIAAAADAP//AAABAAIAAAAEAP//AAABAAIAAAAFAP//AAABAAIAAAAGAP//AAABAAIAAAAHAP//AAABAAIAAAAIAP//AAACAAIAAAAIAP7/AAADAAAAAAAJAP7/AAACAAIAAAAJAPj/AAACAAEAAAAJAPn/AAACAAEAAAAJAPr/AAACAAEAAAAJAPv/AAACAAEAAAAJAPz/AAACAAEAAAAJAP3/AAACAAEAAAAJAPf/AAACAAAAAAAIAPf/AAADAAIAAAAIAPb/AAACAAAAAAAHAPb/AAADAAIAAAAHAPX/AAACAAAAAAAGAPX/AAADAAIAAAAGAPT/AAACAAAAAAAFAPT/AAADAAIAAAAFAO//AAACAAEAAAAFAPD/AAACAAEAAAAFAPH/AAACAAEAAAAFAPL/AAACAAEAAAAFAPP/AAACAAEAAAAFAO7/AAACAAAAAAABAO7/AAABAAAAAAACAO7/AAABAAAAAAADAO7/AAABAAAAAAAEAO7/AAABAAAAAAAAAO7/AAAAAAAAAAAAAO//AAAAAAEAAAAAAPD/AAAAAAEAAAAAAPH/AAAAAAEAAAAAAPL/AAAAAAEAAAAAAPP/AAAAAAEAAAD///T/AAAAAAAAAAAAAPT/AAAFAAIAAAD///X/AAAFAAIAAAD+//X/AAAAAAAAAAD+//b/AAAFAAIAAAD9//b/AAAAAAAAAAD9//f/AAAFAAIAAAD8//f/AAAAAAAAAAD8//j/AAAAAAEAAAD8//n/AAAAAAEAAAD8//r/AAAAAAEAAAD8//v/AAAAAAEAAAD8//z/AAAAAAEAAAD8//3/AAAAAAEAAAD8//7/AAAAAAIAAAD9//7/AAAFAAAAAAD9////AAAAAAIAAAA=")
+tile_set = ExtResource("3_53v2u")
+
+[node name="Player" parent="." instance=ExtResource("4_3mgnq")]
+unique_name_in_owner = true
+z_index = 100
+position = Vector2(195, -376)
+
+[node name="HUD" parent="." instance=ExtResource("5_uc8rk")]
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="EnemyGun5" parent="Enemies" instance=ExtResource("6_hseji")]
+position = Vector2(192, -157)
+
+[node name="EnemySMG" parent="Enemies" instance=ExtResource("7_km634")]
+position = Vector2(108, -1056)
+
+[node name="EnemyChasing3" parent="Enemies" instance=ExtResource("8_000ip")]
+position = Vector2(432, -456)
+
+[node name="EnemyChasing4" parent="Enemies" instance=ExtResource("8_000ip")]
+position = Vector2(-56, -456)
+
+[node name="EnemyChasing6" parent="Enemies" instance=ExtResource("8_000ip")]
+position = Vector2(280, -832)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="PointLight2D" parent="." instance=ExtResource("9_rx4po")]
+metadata/_edit_lock_ = true
+
+[node name="LevelTimer" parent="." instance=ExtResource("10_e257y")]
+wait_time = 5.0
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -10
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ngf84")
+offset_left = -2136.0
+offset_top = -1328.0
+offset_right = 2192.0
+offset_bottom = 1192.0
+mouse_filter = 2
+texture = ExtResource("12_2rkt7")
+stretch_mode = 1
+metadata/_edit_lock_ = true

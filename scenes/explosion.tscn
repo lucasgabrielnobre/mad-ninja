@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0hiyxgo77g7p"]
+
+[sub_resource type="Curve" id="Curve_3oo6d"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_17npe"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, -1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Explosion" type="CPUParticles2D"]
+emitting = false
+amount = 7
+lifetime = 0.2
+one_shot = true
+explosiveness = 1.0
+spread = 70.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 150.0
+initial_velocity_max = 180.0
+scale_amount_min = 16.0
+scale_amount_max = 28.0
+scale_amount_curve = SubResource("Curve_3oo6d")
+color = Color(0.72, 0.794667, 1, 1)
+hue_variation_curve = SubResource("Curve_17npe")

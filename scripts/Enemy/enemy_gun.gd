@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var ray_cast: RayCast2D = $RayCast2D
 var game_manager : Node
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 	if velocity.length() > 0:
 		sprite.play("walk")

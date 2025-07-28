@@ -74,9 +74,7 @@ func get_nearby_enemies(origin: CharacterBody2D, radius: float = 200.0) -> Array
 
 	
 func alert_nearby_enemies(nearby : Array):
-	var i = 0
 	for en in nearby:
-		i += 1
 		var current_state = en.get_node("StateMachine").current_state
 		if current_state:
 			current_state.Transitioned.emit(current_state, "chase")

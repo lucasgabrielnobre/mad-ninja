@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://c2p7qr2rcyj2u"]
+[gd_scene load_steps=14 format=4 uid="uid://c2p7qr2rcyj2u"]
 
-[ext_resource type="Script" uid="uid://c7gp1o0mgf81u" path="res://scripts/camera_2d.gd" id="1_2r1tl"]
 [ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_k0mew"]
 [ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="2_8a7m2"]
+[ext_resource type="PackedScene" uid="uid://cdf1hqw1s6my" path="res://scenes/camera_2d.tscn" id="2_8i1lk"]
 [ext_resource type="TileSet" uid="uid://0nff2m8x2iyp" path="res://assets/TileSet.tres" id="3_b0vvs"]
 [ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_nkeig"]
 [ext_resource type="FontFile" uid="uid://dmwnkxtfdm35q" path="res://assets/font/pixel.ttf" id="6_k0mew"]
@@ -10,16 +10,19 @@
 [ext_resource type="PackedScene" uid="uid://djun076hu7guu" path="res://scenes/enemies/enemy_chasing.tscn" id="7_lgguw"]
 [ext_resource type="PackedScene" uid="uid://conw8fta6vnkq" path="res://scenes/point_light_2d.tscn" id="9_b0vvs"]
 [ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="10_oyk6k"]
+[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="11_8i1lk"]
+[ext_resource type="Texture2D" uid="uid://cs581otwsck38" path="res://assets/Menu/background-green.png" id="12_hgky1"]
 
-[node name="Level2" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_b4tpv"]
+shader = ExtResource("11_8i1lk")
+shader_parameter/speed_x = 0.1
+shader_parameter/speed_y = 0.1
+
+[node name="level2" type="Node2D"]
 
 [node name="GameManager" parent="." instance=ExtResource("1_k0mew")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-158, 134)
-position_smoothing_enabled = true
-position_smoothing_speed = 10.0
-script = ExtResource("1_2r1tl")
+[node name="Camera2D" parent="." instance=ExtResource("2_8i1lk")]
 
 [node name="TileSet" type="TileMapLayer" parent="."]
 use_parent_material = true
@@ -59,3 +62,15 @@ text = "Boa sorte!"
 
 [node name="LevelTimer" parent="." instance=ExtResource("10_oyk6k")]
 wait_time = 5.0
+
+[node name="BackgroundGreen" type="TextureRect" parent="."]
+z_index = -10
+texture_repeat = 2
+material = SubResource("ShaderMaterial_b4tpv")
+offset_left = -2136.0
+offset_top = -1160.0
+offset_right = 2192.0
+offset_bottom = 1360.0
+mouse_filter = 2
+texture = ExtResource("12_hgky1")
+stretch_mode = 1

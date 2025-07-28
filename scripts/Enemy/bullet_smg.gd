@@ -2,7 +2,9 @@ extends Area2D
 
 var speed = 400.0
 var direction : Vector2
-@onready var game_manager: Node = get_node("/root/Level" + str(LevelManager.current_level) + "/GameManager")
+var game_manager: Node
+func _ready() -> void:
+	game_manager = get_tree().get_first_node_in_group("GameManager")
 func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 func _on_body_entered(body: Node2D) -> void:

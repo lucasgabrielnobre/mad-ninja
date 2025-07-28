@@ -1,25 +1,27 @@
-[gd_scene load_steps=23 format=4 uid="uid://y1obx04d5t1v"]
+[gd_scene load_steps=26 format=4 uid="uid://y1obx04d5t1v"]
 
-[ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_m00rq"]
-[ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="2_bbvxl"]
-[ext_resource type="PackedScene" uid="uid://cdf1hqw1s6my" path="res://scenes/camera_2d.tscn" id="2_n5pya"]
-[ext_resource type="TileSet" uid="uid://0nff2m8x2iyp" path="res://assets/TileSet.tres" id="4_6owa4"]
-[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_oswwn"]
-[ext_resource type="Texture2D" uid="uid://jolwaiued5jl" path="res://assets/enemy.png" id="8_6owa4"]
-[ext_resource type="Texture2D" uid="uid://b44evh4vgjh8n" path="res://assets/shuriken_static.png" id="9_n5pya"]
-[ext_resource type="Texture2D" uid="uid://cmx4iphwuafqk" path="res://assets/player.png" id="10_kypp1"]
-[ext_resource type="PackedScene" uid="uid://diwggmj546y1g" path="res://scenes/enemies/enemy_static.tscn" id="11_lha2r"]
-[ext_resource type="Texture2D" uid="uid://bw0w25m7gjyv0" path="res://assets/shuriken_throw-Sheet.png" id="11_ukjja"]
-[ext_resource type="PackedScene" uid="uid://conw8fta6vnkq" path="res://scenes/point_light_2d.tscn" id="12_6owa4"]
-[ext_resource type="FontFile" uid="uid://dmwnkxtfdm35q" path="res://assets/font/pixel.ttf" id="12_p5s5a"]
-[ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="13_n5pya"]
+[ext_resource type="PackedScene" uid="uid://bqt1f0hdneq1x" path="res://scenes/game_manager.tscn" id="1_ps2vj"]
+[ext_resource type="PackedScene" uid="uid://cdf1hqw1s6my" path="res://scenes/camera_2d.tscn" id="2_sbmf2"]
+[ext_resource type="PackedScene" uid="uid://doatprjld6sci" path="res://scenes/player/player.tscn" id="3_1xax6"]
+[ext_resource type="TileSet" uid="uid://0nff2m8x2iyp" path="res://assets/TileSet.tres" id="4_g7tkf"]
+[ext_resource type="PackedScene" uid="uid://dtau1ouinhtnr" path="res://scenes/hud.tscn" id="5_4fww7"]
+[ext_resource type="Texture2D" uid="uid://jolwaiued5jl" path="res://assets/enemy.png" id="6_gvm5i"]
+[ext_resource type="Texture2D" uid="uid://b44evh4vgjh8n" path="res://assets/shuriken_static.png" id="7_jrfo0"]
+[ext_resource type="Texture2D" uid="uid://cmx4iphwuafqk" path="res://assets/player.png" id="8_db1r7"]
+[ext_resource type="Texture2D" uid="uid://bw0w25m7gjyv0" path="res://assets/shuriken_throw-Sheet.png" id="9_6gwlt"]
+[ext_resource type="FontFile" uid="uid://dmwnkxtfdm35q" path="res://assets/font/pixel.ttf" id="10_c2nc4"]
+[ext_resource type="PackedScene" uid="uid://diwggmj546y1g" path="res://scenes/enemies/enemy_static.tscn" id="11_vhxpm"]
+[ext_resource type="PackedScene" uid="uid://conw8fta6vnkq" path="res://scenes/point_light_2d.tscn" id="12_arkx4"]
+[ext_resource type="PackedScene" uid="uid://c0qvpbnj8ctyu" path="res://scenes/level_timer.tscn" id="13_jqv5m"]
+[ext_resource type="Shader" uid="uid://xwlclvin42w5" path="res://shaders/scroll.gdshader" id="14_noix2"]
+[ext_resource type="Texture2D" uid="uid://cs581otwsck38" path="res://assets/Menu/background-green.png" id="15_025c5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6se2n"]
-atlas = ExtResource("8_6owa4")
+atlas = ExtResource("6_gvm5i")
 region = Rect2(0, 0, 56, 52)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_njy47"]
-atlas = ExtResource("9_n5pya")
+atlas = ExtResource("7_jrfo0")
 region = Rect2(0, 0, 36, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j7nyf"]
@@ -37,7 +39,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nx170"]
-atlas = ExtResource("10_kypp1")
+atlas = ExtResource("8_db1r7")
 region = Rect2(0, 0, 64, 52)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xbvxr"]
@@ -52,7 +54,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bspq0"]
-atlas = ExtResource("11_ukjja")
+atlas = ExtResource("9_6gwlt")
 region = Rect2(0, 0, 36, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dqba7"]
@@ -67,7 +69,7 @@ animations = [{
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usw5k"]
-atlas = ExtResource("9_n5pya")
+atlas = ExtResource("7_jrfo0")
 region = Rect2(0, 0, 36, 36)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jsker"]
@@ -81,14 +83,18 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Level1" type="Node2D"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_njy47"]
+shader = ExtResource("14_noix2")
+shader_parameter/speed_x = 0.1
+shader_parameter/speed_y = 0.1
 
-[node name="GameManager" parent="." instance=ExtResource("1_m00rq")]
+[node name="level1" type="Node2D"]
 
-[node name="Camera2D" parent="." instance=ExtResource("2_n5pya")]
-position = Vector2(-158, 134)
+[node name="GameManager" parent="." instance=ExtResource("1_ps2vj")]
 
-[node name="Player" parent="." instance=ExtResource("2_bbvxl")]
+[node name="Camera2D" parent="." instance=ExtResource("2_sbmf2")]
+
+[node name="Player" parent="." instance=ExtResource("3_1xax6")]
 unique_name_in_owner = true
 z_index = 100
 position = Vector2(-158, 134)
@@ -96,9 +102,9 @@ position = Vector2(-158, 134)
 [node name="TileSet" type="TileMapLayer" parent="."]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD8/wQAAAABAAIAAAD9/wQAAAABAAIAAAD+/wQAAAABAAIAAAD//wQAAAABAAIAAAD8/wMAAAABAAEAAAD9/wIAAAABAAEAAAD9/wEAAAABAAEAAAD+////AAABAAEAAAD///7/AAABAAEAAAD8/wAAAAABAAEAAAD8/wEAAAABAAEAAAD8/wIAAAABAAEAAAD9////AAABAAEAAAD9/wMAAAABAAEAAAD+//7/AAABAAEAAAD+/wEAAAABAAEAAAD+/wIAAAABAAEAAAD+/wMAAAABAAEAAAD/////AAABAAEAAAD//wAAAAABAAEAAAD//wEAAAABAAEAAAD//wIAAAABAAEAAAD//wMAAAABAAEAAAAAAP7/AAABAAEAAAAAAP//AAABAAEAAAAAAAAAAAABAAEAAAAAAAEAAAABAAEAAAAAAAIAAAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAABAAAAAAABAAEAAAABAAEAAAABAAEAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAADAP7/AAABAAEAAAADAP//AAABAAEAAAAAAAQAAAABAAIAAAABAAQAAAABAAIAAAACAAQAAAABAAIAAAADAAQAAAABAAIAAAAEAAQAAAABAAIAAAAFAAQAAAACAAIAAAAFAAMAAAACAAEAAAAFAAIAAAACAAEAAAAFAAEAAAACAAEAAAAFAAAAAAACAAEAAAAFAP//AAACAAEAAAAFAP7/AAACAAEAAAD7/wQAAAABAAIAAAD6/wQAAAAAAAIAAAD6/wMAAAAAAAEAAAD6/wIAAAAAAAEAAAD6/wEAAAAAAAEAAAD6/wAAAAAAAAEAAAD6////AAAAAAEAAAD6//7/AAAAAAEAAAD6//3/AAAAAAAAAAD7//3/AAABAAAAAAD8//3/AAABAAAAAAD9//3/AAABAAAAAAD+//3/AAABAAAAAAD///3/AAABAAAAAAAAAP3/AAABAAAAAAABAP3/AAABAAAAAAACAP3/AAABAAAAAAADAP3/AAABAAAAAAAEAP3/AAABAAAAAAAFAP3/AAACAAAAAAD7//7/AAABAAEAAAD7////AAABAAEAAAD7/wAAAAABAAEAAAD7/wEAAAABAAEAAAD7/wIAAAABAAEAAAD7/wMAAAABAAEAAAD8//7/AAABAAEAAAD8////AAABAAEAAAD9//7/AAABAAEAAAAAAAMAAAABAAEAAAABAAIAAAABAAEAAAABAAMAAAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAACAAMAAAABAAEAAAADAAAAAAABAAEAAAADAAEAAAABAAEAAAADAAIAAAABAAEAAAADAAMAAAABAAEAAAAEAP7/AAABAAEAAAAEAP//AAABAAEAAAAEAAAAAAABAAEAAAAEAAEAAAABAAEAAAAEAAIAAAABAAEAAAAEAAMAAAABAAEAAAD9/wAAAAABAAEAAAD+/wAAAAABAAEAAAA=")
-tile_set = ExtResource("4_6owa4")
+tile_set = ExtResource("4_g7tkf")
 
-[node name="HUD" parent="." instance=ExtResource("5_oswwn")]
+[node name="HUD" parent="." instance=ExtResource("5_4fww7")]
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -148,21 +154,33 @@ offset_left = -304.0
 offset_top = -112.0
 offset_right = 116.0
 offset_bottom = 2.0
-theme_override_fonts/font = ExtResource("12_p5s5a")
+theme_override_fonts/font = ExtResource("10_c2nc4")
 theme_override_font_sizes/font_size = 20
 text = "Ganhe      ao eliminar inimigos.
 Use       com botao esquerdo
 eliminar e teleportar"
 
-[node name="EnemyStatic" parent="." instance=ExtResource("11_lha2r")]
+[node name="EnemyStatic" parent="." instance=ExtResource("11_vhxpm")]
 position = Vector2(-32, 136)
 
-[node name="EnemyStatic2" parent="." instance=ExtResource("11_lha2r")]
+[node name="EnemyStatic2" parent="." instance=ExtResource("11_vhxpm")]
 position = Vector2(192, 136)
 
-[node name="PointLight2D" parent="." instance=ExtResource("12_6owa4")]
+[node name="PointLight2D" parent="." instance=ExtResource("12_arkx4")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.913725, 0.913725, 0.913725, 1)
 
-[node name="LevelTimer" parent="." instance=ExtResource("13_n5pya")]
+[node name="LevelTimer" parent="." instance=ExtResource("13_jqv5m")]
+
+[node name="Background" type="TextureRect" parent="."]
+z_index = -10
+texture_repeat = 2
+material = SubResource("ShaderMaterial_njy47")
+offset_left = -2136.0
+offset_top = -1160.0
+offset_right = 2192.0
+offset_bottom = 1360.0
+mouse_filter = 2
+texture = ExtResource("15_025c5")
+stretch_mode = 1

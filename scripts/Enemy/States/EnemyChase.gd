@@ -16,7 +16,7 @@ func PhysicsUpdate(delta):
 		Transitioned.emit(self, "idle")
 	navigation()
 	field_of_view()
-func Update(delta):
+func Update(_delta):
 	handle_sprite()
 func navigation():
 	if player:

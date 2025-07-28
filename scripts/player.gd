@@ -25,7 +25,7 @@ func player_movement(delta):
 		else:
 			update_animation("idle")
 	slash_physics(delta)
-	position += direction * speed * delta
+	velocity = direction * speed
 	move_and_slide()
 func _physics_process(delta: float) -> void:
 	# movimentação
@@ -52,16 +52,10 @@ func slashing():
 	get_tree().get_root().call_deferred("add_child", slash)
 func slash_physics(delta):
 	if $SlashTimer.time_left > 0:
-		if velocity.length() > (friction*delta):
-			velocity -= velocity.normalized() * (friction * delta)
-		else:
-			velocity = Vector2.ZERO
-		velocity =  velocity.limit_length(max_speed)
-	else:
-		if Input.is_action_just_pressed("slash"):
-			slashing()
-			$SlashTimer.start()
-			velocity += (get_global_mouse_position() - global_position).normalized() * dash * delta * 2
+		return
+	if Input.is_action_just_pressed("slash"):
+		slashing()
+		$SlashTimer.start()
 func shurikens_count():
 	return str(shurikens)
 func update_animation(animation):

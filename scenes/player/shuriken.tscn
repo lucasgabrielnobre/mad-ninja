@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://uas7xfb6f71r"]
+[gd_scene load_steps=11 format=3 uid="uid://uas7xfb6f71r"]
 
 [ext_resource type="Texture2D" uid="uid://bw0w25m7gjyv0" path="res://assets/shuriken_throw-Sheet.png" id="1_7ccba"]
 [ext_resource type="Script" uid="uid://dnme5v2txgbc6" path="res://scripts/shuriken.gd" id="1_k18gy"]
+[ext_resource type="Script" uid="uid://c18t427pcrkhx" path="res://scenes/player/shuriken_area_2d.gd" id="3_jpf7k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k18gy"]
 atlas = ExtResource("1_7ccba")
@@ -42,6 +43,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_7ccba"]
 radius = 19.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_2wyga"]
+
 [node name="Shuriken" type="Area2D"]
 script = ExtResource("1_k18gy")
 
@@ -52,6 +55,12 @@ frame_progress = 0.91044
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_7ccba")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("3_jpf7k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2wyga")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

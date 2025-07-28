@@ -20,7 +20,6 @@ func _on_area_entered(area: Area2D) -> void:
 			game_manager.enemy_died("shuriken")
 			area.get_parent().queue_free()
 			queue_free()
-
 	
 func create_explosion(explosion_scene, origin : Vector2, direction):
 	var explosion = explosion_scene.instantiate()
@@ -28,7 +27,3 @@ func create_explosion(explosion_scene, origin : Vector2, direction):
 	explosion.emitting = true
 	explosion.direction = direction
 	get_tree().get_root().call_deferred("add_child", explosion)
-
-func _on_body_entered(body: Node2D) -> void:
-	if body is TileMapLayer:
-		queue_free()

@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=20 format=3 uid="uid://0nff2m8x2iyp"]
 
-[ext_resource type="Texture2D" uid="uid://bqvb2i66olrdc" path="res://assets/wall-tiles.png" id="1_kv6p3"]
+[ext_resource type="Texture2D" uid="uid://b5do5pnom36cx" path="res://assets/wall-tiles2.png" id="1_kv6p3"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_thyxf"]
 polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
@@ -111,6 +111,7 @@ texture_region_size = Vector2i(64, 64)
 5:0/0 = 0
 5:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_or7e5")
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+6:0/0 = 0
 
 [resource]
 tile_size = Vector2i(64, 64)

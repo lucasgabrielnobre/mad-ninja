@@ -1,0 +1,260 @@
+[gd_scene load_steps=17 format=3 uid="uid://b7s2xs1i4p73h"]
+
+[ext_resource type="Script" uid="uid://bt2i3mee4w4xd" path="res://scripts/last_screen.gd" id="1_c7ypa"]
+[ext_resource type="FontFile" uid="uid://dmwnkxtfdm35q" path="res://assets/font/pixel.ttf" id="3_c7ypa"]
+[ext_resource type="Texture2D" uid="uid://bxjgaqw2mjrv4" path="res://assets/Menu/retry-button_pt.png" id="4_p1nxg"]
+[ext_resource type="Texture2D" uid="uid://d2rs4h6olh3qm" path="res://assets/Menu/retry-button_en.png" id="5_ywh6v"]
+[ext_resource type="PackedScene" uid="uid://jt5k51w2as4q" path="res://scenes/background.tscn" id="6_xpqay"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hs5ev"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xydqc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l5u71"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xpqay"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y4rd3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6k7rx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3r21"]
+content_margin_bottom = 12.0
+bg_color = Color(0.6, 0.6, 0.6, 0)
+skew = Vector2(0, 100)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_75d7p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5e3y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hnhyw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x17j2"]
+bg_color = Color(0.52, 0.52, 0.52, 0)
+
+[node name="Last Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c7ypa")
+
+[node name="Background" parent="." instance=ExtResource("6_xpqay")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_top = -16.0
+offset_right = 944.0
+offset_bottom = 544.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -372.0
+offset_top = -220.0
+offset_right = 372.0
+offset_bottom = 220.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="Labels" type="Node" parent="."]
+
+[node name="1" type="Label" parent="Labels"]
+offset_left = 128.0
+offset_top = 160.0
+offset_right = 168.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "1:"
+
+[node name="2" type="Label" parent="Labels"]
+offset_left = 128.0
+offset_top = 208.0
+offset_right = 160.0
+offset_bottom = 244.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "2:"
+
+[node name="3" type="Label" parent="Labels"]
+offset_left = 128.0
+offset_top = 256.0
+offset_right = 168.0
+offset_bottom = 292.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "3:"
+
+[node name="4" type="Label" parent="Labels"]
+offset_left = 128.0
+offset_top = 304.0
+offset_right = 168.0
+offset_bottom = 340.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "4:"
+
+[node name="5" type="Label" parent="Labels"]
+offset_left = 128.0
+offset_top = 352.0
+offset_right = 168.0
+offset_bottom = 388.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "5:"
+
+[node name="6" type="Label" parent="Labels"]
+offset_left = 352.0
+offset_top = 160.0
+offset_right = 392.0
+offset_bottom = 196.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "6:"
+
+[node name="7" type="Label" parent="Labels"]
+offset_left = 352.0
+offset_top = 208.0
+offset_right = 392.0
+offset_bottom = 244.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "7:"
+
+[node name="8" type="Label" parent="Labels"]
+offset_left = 352.0
+offset_top = 256.0
+offset_right = 392.0
+offset_bottom = 292.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "8:"
+
+[node name="9" type="Label" parent="Labels"]
+offset_left = 352.0
+offset_top = 304.0
+offset_right = 392.0
+offset_bottom = 340.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "9:"
+
+[node name="10" type="Label" parent="Labels"]
+offset_left = 336.0
+offset_top = 352.0
+offset_right = 384.0
+offset_bottom = 388.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "10:"
+
+[node name="pt" type="Node2D" parent="."]
+visible = false
+
+[node name="congrats" type="Label" parent="pt"]
+offset_left = 280.0
+offset_top = 64.0
+offset_right = 616.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "Parabens!"
+horizontal_alignment = 1
+
+[node name="your_time" type="Label" parent="pt"]
+offset_left = 136.0
+offset_top = 104.0
+offset_right = 294.0
+offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "Seu tempo:"
+
+[node name="retry" type="Button" parent="pt" groups=["pt"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 512.0
+offset_top = 192.0
+offset_right = 768.0
+offset_bottom = 328.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hs5ev")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xydqc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l5u71")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xpqay")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_y4rd3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6k7rx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q3r21")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_75d7p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u5e3y")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hnhyw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x17j2")
+icon = ExtResource("4_p1nxg")
+
+[node name="en" type="Node2D" parent="."]
+visible = false
+
+[node name="congrats" type="Label" parent="en"]
+offset_left = 280.0
+offset_top = 64.0
+offset_right = 616.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "Congratulations!"
+horizontal_alignment = 1
+
+[node name="your_time" type="Label" parent="en"]
+offset_left = 136.0
+offset_top = 104.0
+offset_right = 294.0
+offset_bottom = 140.0
+theme_override_fonts/font = ExtResource("3_c7ypa")
+theme_override_font_sizes/font_size = 20
+text = "Your time"
+
+[node name="retry" type="Button" parent="en" groups=["pt"]]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 512.0
+offset_top = 224.0
+offset_right = 768.0
+offset_bottom = 308.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hs5ev")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_xydqc")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_l5u71")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xpqay")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_y4rd3")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_6k7rx")
+theme_override_styles/hover = SubResource("StyleBoxFlat_q3r21")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_75d7p")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_u5e3y")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_hnhyw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_x17j2")
+icon = ExtResource("5_ywh6v")
+
+[connection signal="button_up" from="pt/retry" to="." method="_on_retry_button_up"]
+[connection signal="button_up" from="en/retry" to="." method="_on_retry_button_up"]

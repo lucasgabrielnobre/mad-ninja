@@ -53,6 +53,8 @@ func handle_gun():
 	# Calcula a posição na circunferência (raio 70) com base nesse ângulo
 	var offset : Vector2
 	offset = Vector2.RIGHT.rotated(angle) * 70.0
+	if gun.name == "SMG":
+		offset = Vector2.RIGHT.rotated(angle) * 40.0
 	if move_direction.x > 0:
 		gun.flip_v = false
 	else:

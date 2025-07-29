@@ -137,6 +137,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_bqqt6")
 icon = ExtResource("7_oa1go")
 
 [node name="Background" parent="." instance=ExtResource("6_oa1go")]
+layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0

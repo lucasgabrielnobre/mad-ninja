@@ -1,7 +1,8 @@
+Node
+Node2D
+Label
 ColorRect
 Button
-Node2D
-Node
 TextEdit
 CollisionShape2D
 Area2D
@@ -11,4 +12,3 @@ CanvasLayer
 TextureRect
 Panel
 Sprite2D
-LightOccluder2D

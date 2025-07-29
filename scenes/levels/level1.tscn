@@ -234,9 +234,9 @@ to kill and teleport"
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = -800.0
-offset_top = -496.0
-offset_right = 816.0
-offset_bottom = 544.0
+offset_left = -1288.0
+offset_top = -1288.0
+offset_right = 1408.0
+offset_bottom = 1376.0
 grow_horizontal = 1
 grow_vertical = 1

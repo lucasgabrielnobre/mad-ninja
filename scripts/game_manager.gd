@@ -63,9 +63,12 @@ func input_Manager():
 		scene_manager.change_scene(get_tree().current_scene, number, "level")
 	if Input.is_action_just_pressed("next_level") and next_level:
 		LevelManager.set_score(LevelManager.current_level, time_completion)
-		LevelManager.current_level += 1
-		var number = str(LevelManager.current_level)
-		scene_manager.change_scene(get_tree().current_scene, number, "level")
+		if LevelManager.current_level < 9:
+			LevelManager.current_level += 1
+			var number = str(LevelManager.current_level)
+			scene_manager.change_scene(get_tree().current_scene, number, "level")
+		else:
+			scene_manager.change_scene(get_tree().current_scene, "last_screen", "last_screen")
 	if Input.is_key_pressed(KEY_0):
 		change_levels(0)
 	if Input.is_key_pressed(KEY_1):
